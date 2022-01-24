@@ -1,4 +1,2 @@
 
-# Xaringa
-
--   [syndey xaringan](http://garthtarr.github.io/sydney_xaringan)
+Summary of resources and my proyects
