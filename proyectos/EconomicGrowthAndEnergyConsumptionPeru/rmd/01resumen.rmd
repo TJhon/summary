@@ -1,0 +1,6 @@
+\newpage    
+
+# Resumen
+
+El presente trabajo de investigación analizo la influencia del consumo eléctrico sobre el crecimiento económico en el Perú en el periodo 2010-2019, el análisis de series de tiempo bajo la metodología de vectores autorregresivos (VAR) que permite ver mejor la relación efecto temporal de las variables de estudio, la causalidad entre las variables se estimó mediante el test de causalidad de Granger. Los resultados obtenidos muestran existe relación causal unilateral que va desde el crecimiento económico hacia el consumo electrico apoyando la hipotesis conservadora.
+

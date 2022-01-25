@@ -1,0 +1,146 @@
+---
+output:
+  word_document: default
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+# Metodología 
+
+<!-- 2 - 3 paginas -->
+<!-- describir el modelo econometirco que se va a utilizar -->
+<!-- senaliar el metodo que se va a utilizar: metodo? inductivo deductivo? -->
+<!-- explicar las variables: como se trataron los datos, indicadores fuente -->
+<!-- Definir si son datos reales o datos nominales -->
+
+
+
+
+## Método 
+
+La investigación es de tipo explicativo, ya que se busca saber las causas de los hechos. Su objetivo es focalizarse y justificar por qué sucede un hecho, bajo qué condiciones se manifiesta, como ha venido evolucionado, y la relación que podría existir entre ellas. Em método universal es el funcionalista, ya que se plantea que cada de las partes cumple un papel en la función y forma parte del todo. En tanto al método general se identifica que es deductivo ya que a partir de enunciados principios generales señalados en el marco teórico se deduce una hipótesis que postula una relación de tipo causal. y por último el método particular es el empírico - estadístico en particular el uso un modelo VAR para la contrastación de hipótesis.
+
+## Recolección de datos 
+
+Datos mensuales desde enero del 2010 hasta diciembre del 2019, el Producto interno Bruto es extraído de la base de datos
+del Banco de Reserva del Perú (BCRP) en miles de millones de soles, el consumo eléctrico con datos cada 30 min del Comité de Operación Económica del Sistema Interconectado Nacional (COES)en MWh, el índice de precios al consumidor obtenidos
+del Instituto Nacional de Estadística e Informática de Perú, con un total de 120 observaciones. Para que los datos coincidan se modificó la base de datos 
+original para que el Producto Bruto Interno este a precios del 2012, el consumo eléctrico es la suma del consumo de agregado de todo el mes, y por ultimo 
+el índice de precios al consumidor están a precios base del año 2012. El PIB real esta adaptado para un año base del 2012. 
+
+Los datos descargados en formato Excel son importados por el programa estadístico `R` para su tratamiento y estimación de resultados.
+
+
+
+## Definición de variables 
+
+La serie de tiempo empleadas están conformadas por datos mensuales, iniciando en 
+el año 2010.1 hasta el año 2019.12 con un total de 120 observaciones.
+Todas las variables están expresadas en logaritmos naturales.
+
+1. Consumo eléctrico precipita
+    Consumo de Energía Eléctrica de un determinado territorio
+    en un espacio temporal (2010 - 2019)
+    - Fuente: COES
+    - Ecuación: $C_p = \frac{\text{Consumo eléctrico} }{población}$
+2. Crecimiento Económico 
+    Incremento porcentual del Producto Interno Bruto real dividido entre la cantidad
+    de habitantes de una economía en un periodo determinado
+    - Fuente: BCRP
+    - Ecuación: $CE = \Delta \% \text{PIB per cápita}$
+3. Índice de precios al consumidor 
+    Índice que mide el promedio de los precios que pagan los consumidores por una 
+    canasta básica de bienes y servicios
+    - Fuente: INEI
+
+
+## Modelo econométrico 
+
+A continuación, se detalla el modelo a contrastar con las variables la cual ya se detalló anteriormente.    
+
+$$\Delta ln(y_t) = \beta_0 + \beta_1 \Delta ln(CEl_t) + \epsilon$$
+
+Donde:
+
+- $ln$: es el logaritmo natural
+- $y$: es el PIB precipita
+- $CEl$: es el consumo eléctrico precipita
+- $P$: es el precio
+- $t$: es el tiempo
+- $\Delta$: variacion temporal
+- $\epsilon$: error
+
+## Metodología econométrica 
+
+
+### Test de raíz unitaria
+
+La prueba de estacionariedad es vital en el análisis econométrico de series de tiempo, para evitar una regresión espuria y un incorrecto análisis econométrico. Para evitar esto se recomienda trabajar con variables estacionarias, las cuales se comprueban con las pruebas de raíz unitaria. La economía tiene varios procedimientos de pruebas de raíz unitaria, *Dickey-Fuller* aumentado. La prueba de raíz unitaria mencionada, establece como hipótesis nula donde la raíz de la unidad donde $H_0: \theta = 0$ frente a la hipótesis alternativa de estacionariedad $H_1 \theta<0$. Por lo tanto, no rechazar la hipótesis nula de los test implica la presencia de raíces unitarias mientras que el rechazo denota estacionariedad.
+
+### Vectores autorregresivos (VAR)
+
+La metodología econométrica de vectores autorregresivos (VAR) planteada
+por Sims (1980). Trata a las variables de manera independiente, variables que se
+explican por sí mismas en función de sus rezagos, considerados como modelos
+econométricos ateóricos que permite ver la causalidad de las variables y el efecto
+que tiene una variable ante otra variable mediante un shock o innovación de los
+errores, llamadas función de impulso respuesta, que muestra la temporalidad de
+duración del choque sobre la variable de estudio.
+
+Su planteamiento formal es relativamente sencillo, en la parte derecha de la
+función va las variables endógenas rezagadas donde la cantidad de rezagos
+apropiados determinaran la aleatoriedad de los residuos, y en la parte derecha las
+variables endógenas.
+
+Cuando un modelo presenta variables independientes y dependientes en la parte derecha, entonces se considera modelos simultáneos sujeto a parámetros muchas veces subjetivos, de ahí nace la necesidad de modelos de ecuaciones simultáneas no condicionadas, conocido como modelos de vectores autorregresivos VAR, en este caso en particular es de la siguiente manera:
+
+$$
+y_t = \beta^{y}_0 + \beta^{y}_1y_{t-1} + \beta^{CEl}_3CEl_{t-1} + \nu_ {y, t} 
+$$
+
+
+
+$$
+CEl_t = \beta^{CEl}_0 + \beta^{CEl}_1CEl_{t-1} + \beta^{y}_3y_{t-1} + \nu_{CEl,t} 
+$$
+donde los términos de error satisfacen, 
+
+$$
+E(\nu_{CEl,t}) = E(\nu_{y, t})  = 0
+$$
+
+$$
+E(\nu_{Cel,t} \nu_{CEl, s} ) = E(\nu_{y,t} \nu_{y, s})     = 0, t\neq s
+$$
+
+
+Las ecuaciones constituyen un modelo de vectores autorregresivos de primer orden VAR (1) dado que se considera solamente un rezago en las variables entre las cuales puede exister una retroalimentación.
+
+
+### Características del modelo VAR
+
+No se considera apriori variables endógenas y/o exógenas, no requiere de conocimientos teóricos fuertes sobre las fueras que influyen en las variables para la elaboración del modelo VAR, si no se excluyen las variables y ninguna se supone exógena entonces todas las variables de estudio causan a todas, por lo que están relacionas temporalmente operando en rezagos en la economía.
+
+
+## Test de causalidad de Granger
+
+El test causalidad a lo Granger, aprobara la hipótesis de que esta variable es significativa para el modelo y por consecuencia que en una variable casual.
+
+
+## Estabilidad 
+
+Sucede cuando las raíces de los modelos son menores a 1.
+
+### Función de impulso respuesta
+
+
+Esta función recoge la respuesta de la variable dependiente ante un golpe o
+shock que es generalmente el valor de una desviación típica de la variable
+independiente, este efecto formalmente introduce una alteración en la perturbación
+aleatoria alterando el conjunto del sistema, estos efectos podrían ser estables o
+explosivos dependiendo de la naturaleza de su interrelación.
+
+<!--al menos trata sobre lo que quiero  http://repositorio.uncp.edu.pe/bitstream/handle/UNCP/5131/T010_44239216_T.pdf?sequence=1&isAllowed=y -->
+<!-- test de autocorrelacion -->
+
+

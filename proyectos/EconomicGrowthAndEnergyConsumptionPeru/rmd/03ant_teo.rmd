@@ -1,0 +1,170 @@
+
+# Antecedentes teóricos 
+
+<!-- 2-3 paginas -->
+<!-- > Libros, textos: que muestren una relacion entre las variables a nivel teorico -->
+<!-- > Resumir temas relevantes para esta teoria  -->
+<!-- > Trabajos previos que mencionen la relacion  -->
+
+Muchos autores se han preocupado sobre la interacción entre el Crecimiento Económico (CEc) y el Consumo Eléctrico^[En un principio era la variable energía, pero ahora se validaron modelos con el Consumo Eléctrico] (CEl). Como la electricidad es un bien que dada sus características, no se puede almacenar en grandes cantidades además de que los costos incurridos en ello son actualmente bastante elevados, por lo que se debe atender a una demanda inmediata dicho esto, la oferta debe adaptarse muy rápido para atender algún exceso de demanda, pero también debe estar atento para cuando la demanda baja para evitar sobrecargar el sistema, todas estas coordinaciones están a cargo del Comité de Operación Económica del Sistema (COES) por lo que la interacción entre las actividades productivas y el consumo eléctrico determinaran las acciones de políticas energéticas adecuadas. 
+
+La Prensa Nacional de Academias (NAP)^[The National Academies press ] @NAP1986  mostro un esquema de 
+sobre cómo las 2 variables interactúan de la siguiente manera: 
+
+"La electrificación como un medio de proceso basado en el uso de la electricidad, la electrificación puede 
+aumentar o disminuir el consumo de electricidad, dependiendo de factores tales como si hay un cambio en la técnica de producción de no eléctrico a eléctrico, 
+la cantidad de electricidad consumida puede ser mayor si los precios de los productos caen debido a una mayor eficiencia en la producción, incrementándose la productividad
+expresado normalmente como la tasa de crecimiento de la productividad de los sectores productivos, que un agregado significa un incremento en la productividad nacional,
+dando como consecuencia el incremento de los ingresos, además de un incremento en la demanda de la electricidad"
+
+
+```{r <chunk-label>, echo = FALSE, fig.cap = 'Relacion entre el consumo electrico y el crecimiento econónico'}
+knitr::include_graphics(here('code', 'make.jpeg'))
+```
+
+
+En tanto @Keen2019 basándose en @Kummel2010 establece una función de producción modificada con energía, la cual llama Energy-Augmented Cobb-Douglas Production Function (EACDPF)
+
+$Q = A K^\alpha L^\beta E^\chi$
+
+La condición de retornos constantes a escala ahora es:
+
+$\alpha + \beta + \chi = 1$
+
+La energía no jugaría un papel importante en la ecuación anterior si se elige valores de $\alpha$ y $\beta$ tales que $\alpha + \beta = 1$
+ya que esto elimina cualquier función de la energía en la producción. Si por ejemplo $\chi$ fuese 0.07 significaría que un aumento 
+en un 50% de la energía (mientras que se mantienen K y L constantes) causaría solo un aumento del 2.8% en la producción, por lo que caídas extremas 
+en la energía tendría efectos triviales en la producción.
+
+Autores como @Payne2010 y @Ozturk2011 abordan esta relación potencial entre el Consumo de Energía y Crecimiento Económico, mencionan 4 hipótesis, 
+y recopilan los trabajos empíricos preexistentes que apoyan estas hipótesis.
+
+1. Hipótesis crecimiento  
+
+    Sostiene una relación causal unidireccional del consumo eléctrico hacia el crecimiento 
+    económico. En esta situación, una reducción en el consumo eléctrico tiene un impacto negativo en el crecimiento económico.
+    Si se tradujeran en acciones de políticas de conservación energéticas orientadas a disminuir la   
+    demanda de energía eléctrica estas pueden tener efectos negativos sobre el crecimiento económico.
+
+    $$CEn \rightarrow CEl$$
+
+2. Hipótesis Conservadora 
+
+    Establece una relación causal unidireccional desde el crecimiento económico hacia la demanda 
+    de energía eléctrica, en consecuencia, las políticas de conservación de energía eléctrica tienen 
+    poco o nulo impacto sobre el crecimiento económico, debido a que el costo de la energía 
+    es muy pequeño como proporción del PIB y por lo tanto el consumo de energía es probable 
+    que tenga un impacto poco significativo en el crecimiento económico.
+
+    $$CEl\rightarrow CEl$$
+
+3. Hipótesis retroalimentación 
+
+    Establece una relación bilateral entre el crecimiento económico y el consumo eléctrico
+    en donde las políticas conservadoras de energía no son recomendables, al contrario, 
+    se propone incentivar el desarrollo del sector eléctrico para impulsar el crecimiento económico.
+
+    $$CEc \leftrightarrow CEl$$ 
+
+4. Hipótesis de neutralidad  
+
+    Afirma que estas variables son independientes por lo que no existe ninguna relación de causalidad entre el consumo de energía 
+    eléctrica y el crecimiento económico. En este escenario, las políticas de conservación 
+    de energía orientadas a la reducción del consumo eléctrico no tendrán influencia en
+    el crecimiento económico.
+
+    $$CEc\nleftrightarrow CEl$$
+
+Para poder validar estas hipótesis se basan en modelos de crecimiento endógeno, con estimaciones en 
+series de tiempo y datos de panel, los cuales destacan los modelos de Vectores Autorregresivos (VAR), 
+Vector de corrección de errores (VEC), Test de causalidad a lo Granger, Test de causalidad a lo Brief, Test Toda-Yanamoto y 
+test similares para series de tiempo multivariables.
+
+
+
+
+
+
+
+# Antecedentes empíricos
+ 
+<!-- 2-3 paginas -->
+<!-- investigaciones previas que muestren la relación de estas variables -->
+<!-- centrarse en los  resultados-->
+
+Hay una gran cantidad de trabajos que examinan las relaciones empíricas entre
+consumo eléctrico y crecimiento económico. Literatura empírica sobre la relación.
+entre el consumo de electricidad y el crecimiento económico se puede dividir en dos tiempos
+períodos: el corto y el largo plazo.
+
+Existen varios trabajos empíricos que examinan las relaciones entre el consumo eléctrico 
+y el crecimiento económico, la literatura empírica sobre esta relación se puede dividir 
+en 2 tiempos: el corto y el largo plazo. Existe también otra división la cual son clasificadas por las
+4 hipótesis mencionadas anteriormente.
+
+@Ali2020 examino la relación entre el consumo de energía eléctrica y el crecimiento económico, usando
+mínimos cuadrados dinámicos (DOLS por sus siglas en ingles), para Nigeria en una muestra temporal 1971-2014, donde la 
+relación unidireccional en el largo plazo con significancia al 5% que se dirige del consumo de energía hacia el crecimiento económico. 
+@Amaluddin2020 examino la relación entre el consumo eléctrico, el acceso a internet, y el crecimiento económico 
+para las 33 provincias de Indonesia, usando un Modelo de corrección de errores de vector de panel (PVECM por sus siglas en ingles) y DOLS, 
+encontró que en largo plazo confirma la hipótesis de retroalimentación entre el consumo eléctrico y el crecimiento 
+económico por el canal de transmisión del acceso a tecnología. @Atchike2020 para probar que existe relación causal unidireccional entre
+el consumo eléctrico en el largo plazo, se apoya en el método de estimación ARLD^[Autoregressive Distrivuted Lag], donde el canal de transmisión es la inversión directa 
+con un ajuste del 60.72%.  Tsaurai2020 estudio el consumo de energía renovable en los paises de Brasil, Rusia, India, China y Sudáfrica (BRICS) basándose en un modelo de datos de panel
+desde 1993 hasta 2015, encontró una relación negativa entre el consumo de energía renovable sobre el crecimiento económico, pero su otra estimación sugiere
+que este impacto negativo se redujo por la educación. @Syzdykova2020 estudio la relación entre el consumo de energía y el crecimiento económico en la Comunidad de estados independientes
+(CIS) desde 1992-2018, encontró empíricamente regresiones con datos de panel que los efectos del consumo de energía sobre el crecimiento difieren, pero en la mayoría de las economías se sobrepone la 
+hipótesis de retroalimentación. @Sharma2020 incluyo una nueva variable de anales la cual es las tecnologías de información y comunicación
+como canal de transmisión entre el consumo energético y el crecimiento económico en los paises asiáticos, la investigación 
+apoyo la hipótesis de retroalimentación para paises con mediano y alta tecnología exportada, mientras que los paises con baja tecnología 
+apoya la hipótesis de neutralidad. @Rajkumari2020 se concentra en Karnataka una provincia de India la cual tiene un rápido crecimiento económico, con 
+un alto crecimiento industrial, sin embargo, el test de causalidad de Granger revelo que no hay alguna relación causal entre las variables apoyando la hipótesis de neutralidad. 
+
+
+@Alsaedi2020 estudio la relación dinámica entre el consumo eléctrico, la carga máxima y el consumo eléctrico en Arabia Saudí, usando un modelo VAR muestra una relación
+bilateral entre el consumo eléctrico y el crecimiento económico, la función de impulso respuesta a 10 años muestra que la ratio de crecimiento es de 7.21% y 6.87% para las variables 
+en cuestión, además la contribución del consumo eléctrico, y el crecimiento económico son 10% y 34% respectivamente; en tanto la carga máxima es una variable significativa para explicar el crecimiento económico.
+@Amoako2019 examino la relación entre el consumo eléctrico y el crecimiento económico en Gana, mediante un modelo ADLR mostro existe una relación unidireccional que va desde el crecimiento económico y consumo eléctrico.
+De igual manera la investigación de @Balcilar2019 en Pakistán mostro mediante el test de causalidad de Toda-Yanamoto, una relación unidireccional del crecimiento económico hacia el consumo eléctrico en 
+por qué apoya la hipótesis conservadora. @Sultan2019 en su investigación para India 1971 - 2014 encontró una relación de largo plazo bidireccional entre el consumo de energía y el crecimiento, validando estos resultados 
+por el test de casualidad a lo Granger. @Marques2019 en su investigación orientada para China en un periodo desde 1971 hasta el 2014, que, en Norte y Sur América, el impacto en el corto y largo plazo las elasticidades entre el consumo de
+energía y el crecimiento tienen un efecto bilateral significativos al 5% en el largo plazo, mientras que en largo plazo son significativos al 10%. En Europa y Asia central la relación en el corto plazo se encuentra una 
+relación unidireccional entre el consumo de energía y el crecimiento económico, mientras que el largo plazo la relación es bidireccional. En Asia del Pacifico se confirma la hipótesis de retroalimentación en el corto y largo plazo.
+En África y el Medio Este en el corto plazo se encuentra una relación bilateral entre el consumo de energía y el crecimiento económico, mientras que en largo plazo existe una relación unidireccional del crecimiento economía hacia el consumo de energía. 
+En China las reformas en el mercado eléctrico durante el 2000 hasta el 2016 mostro una inconsistencia entre en la relación 
+entre el crecimiento económico y el consumo eléctrico, el modelo VAR muestra que no hay relación alguna entre las variables 
+apostando por la hipótesis de neutralidad [@Lin2019].
+
+@Bakirtas2018 que en su estudio mostraba la interacción entre el consumo energético, la urbanización y el crecimiento económico, 
+mostro una relación causal validad por el test Dumitrescu-Hurlin panel Granger que paises comerciales emergentes (Colombia, India, Indonesia, Kenia, Malasia, y México), la existencia de causalidad en el sentido de Granger para un modelo bivariado
+que va desde el crecimiento económico hacia el consumo de energía, mientras que para un modelo trivializado la relación fue del crecimiento económico y la urbanización hacia el consumo de energía, y desde el consumo de energía y el crecimiento 
+económico hacia la urbanización. @Bah2017 mostro que para Suráfrica durante el periodo 1971-2012 no hay evidencia de alguna relación causal entre las variables estas conclusiones validadas por el Test de Toda-Yanamoto apoyando la hipótesis de neutralidad.
+@MarroquinArreola2017 en un estudio para México mostro una relación causal en un modelo bivariado unidireccional entre el consumo eléctrico y el crecimiento económico, mientras que para un modelo trivializado la relación es mediante el ajuste de precios la demanda 
+de electricidad se reduce y esto provoca que el crecimiento económico sea inerte a cambios del consumo de energía apostando por la hipótesis de neutralidad en este escenario. 
+@Streimikiene2016 estudio la relación en el largo plazo entre el consumo de energía y el crecimiento económico, incluyendo capital fijo y el total de empleo observado, para 18 paises de la Unión Europea en el 
+periodo 1995-2012, basándose en un modelo Fulli modified ordinary least squares (FMOLS) donde las variables están cointegradas apoyando la hipótesis de neutralidad, mientras que su otra estimación por Dynamic ordinari least squares (DOLS)apoya la hipótesis de causalidad 
+del consumo energético hacia el crecimiento económico apoyando la hipótesis de crecimiento. 
+
+@Osman2016 empleo un modelo de datos de panel (PMEC) para investigar la relación entre el consumo eléctrico y el crecimiento económico, para paises pertenecientes al Gulf Corporation Council en un periodo desde 1975-2012, 
+encontrando que en largo plazo que el consumo eléctrico y el crecimiento económico una relación bidireccional. @Mutascu2016 mostró en su investigación para paises perteneciente al G7, durante el periodo 1970-2012, mostro
+una relación bidireccional entre el consumo eléctrico y el crecimiento económico en Canadá, Japón, y los Estados Unidos apoyando la hipótesis de retroalimentación, muestras que para los paises de Francia y Alemania hubo relación causal
+unidireccional del crecimiento económico hacia el consumo eléctrico apoyando la hipótesis conservadora, el resto de paises miembros 
+no mostro una relación aparente en el sentido de Granger apoyando la hipótesis de neutralidad. 
+@Abdoli2015 investigo para paises perteneciente al OPEC la relación existente entre el consumo eléctrico y el crecimiento económico en el periodo 1980-2011, y evidencio que el corto plazo 
+que existe relación causal bidireccional entre el consumo eléctrico y el crecimiento económico apoyando la hipótesis de retroalimentación y propone políticas energéticas que mejoren el consumo 
+eficiente eléctrico. @Osigwe2015 para el país de Nigeria propuso la interacción de precios del petróleo, el consumo energético y el crecimiento económico, los resultados mostraron una relación causal bidireccional entre el consumo de energía y el crecimiento económico,
+de igual manera fue la interacción entre el consumo de energía y el precio de esta. 
+
+@Iyke2015 examino la relación causal dinámica entre el consumo eléctrico la inflación y el crecimiento económico en Nigeria con un modelo VECM en el periodo 1971-2011, los resultados muestran que 
+existe una relación causal del consumo de eléctrico hacia el crecimiento económico, apoyando la hipótesis de crecimiento. @Mulali2014 exploro los efectos de consumo de energía renovable y no renovable en el crecimiento económico para 18 paises de América en el periodo 1980-2010 
+mediante una regresión DOLS mostro que el largo plazo hay una relación de causalidad bidireccional entre las el consumo eléctrico no renovable y consumo eléctrico renovable sobre el crecimiento económico, siendo más significativo la interacción entre 
+el consumo eléctrico no renovable con el crecimiento, que el consumo eléctrico renovable y el crecimiento económico, apoyando la hipótesis de retroalimentación. 
+@Paola2014 en un trabajo para explicar la relación causal e Chile encontró que el largo plazo existe una relación causal al 10% entre el crecimiento económico y el consumo eléctrico, mientras que 
+existe una relación causal del crecimiento económico y el consumo eléctrico hacia el empleo con significancia del 5% en primera instancia apoyando la hipótesis conservadora. Por otro lado, los resultados mostraron una relación causal en el corto plazo 
+que parte desde el consumo eléctrico hacia el crecimiento económico apoyando la hipótesis de crecimiento en el corto plazo. @Abbas2013 examino la relación causal entre el consumo eléctrico y el crecimiento económico en los 2 paises densamente más poblados del Sur de Asia, Pakistán e India.
+los resultados mostraron que el sector agricultura existe relación causal bidireccional entre el consumo eléctrico del sector agricultura y el crecimiento del sector agricultura en Pakistán, mientras que la India existe una relación causal unidireccional entre el crecimiento económico
+hacia el consumo eléctrico apoyando la hipótesis conservadora. @Baranzini2013 investigo la relación entre el uso de energía y el crecimiento económico en Suiza en el periodo 1950-2010, encontró una relación bidireccional entre el uso de energía y el crecimiento económico en el largo plazo siendo significativos al 5%, 
+por lo tanto, al apoyarse en la hipótesis de retroalimentación sugiere que no se debe implantar políticas de conservación de energía ya que esto tendrá efectos negativos en el crecimiento económico. 
+
+
+

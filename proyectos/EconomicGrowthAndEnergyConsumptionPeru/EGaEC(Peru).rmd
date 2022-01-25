@@ -1,0 +1,67 @@
+---
+title: 'Crecimiento económico y consumo eléctrico'
+date: "`r format(Sys.Date(), '%a %d %b, %Y')`"
+output:
+  #pdf_document:
+  #  toc: true
+  #  include:
+  #    in_header: tex/header.tex
+  #  extra_dependencies: subfig
+  #  number_sections: true
+  #word_document: default
+  html_document:
+    df_print: paged
+lang: es
+bibliography: bib/ref1.bib
+---
+
+<!-- somaente mas texto -->
+
+<!-- lo que esta escrito en estos signos se omiten en la compilacion del documento -->
+<!-- https://bookdown.org/singh_pratap_tejendra/intro_time_series_r/multivariate-ts-analysis.html -->
+<!-- http://blog.mindymallory.com/2018/02/basic-time-series-analysis-the-var-model-explained/
+http://faculty.washington.edu/ezivot/econ584/notes/varModels.pdf
+http://repositorio.uncp.edu.pe/bitstream/handle/UNCP/5374/T010_44909671_T.pdf?sequence=1&isAllowed=y -->
+
+```{r setup, echo=FALSE, warning=FALSE, include=TRUE}
+# import code  
+# libreris necesarias 
+#library(tidyverse)
+#library(kableExtra)
+sable <- function(x, escape = T, booktabs = T, caption = "", longtable = T, optio  = c("stripted", "hold_position"), full = T) {
+  kable(x, escape = escape, booktabs = T, caption = caption, longtable = longtable) %>%
+    kable_styling(latex_options =  optio, full_width = full, position = "center")
+}
+
+
+```
+
+
+
+```{r resumen, child = 'rmd/01resumen.rmd'}
+```
+
+```{r introduccion, child = 'rmd/02intro.rmd'}
+```
+
+```{r teoria, child = 'rmd/03ant_teo.rmd'}
+```
+
+```{r hecho, child = 'rmd/05hechos.rmd'}
+```
+
+```{r modelo, child = 'rmd/06model.rmd'}
+```
+
+```{r hipotesis, child = 'rmd/07hipo.rmd'}
+```
+
+```{r metodologia, child = 'rmd/08method.rmd'}
+```
+
+```{r resultados, child = 'rmd/09resul.rmd'}
+```
+
+```{r fila, child = 'rmd/10final.rmd'}
+```
+

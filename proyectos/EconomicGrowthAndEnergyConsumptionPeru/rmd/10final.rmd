@@ -1,0 +1,17 @@
+# Conclusiones 
+
+El presente trabajo investigo la relación causal entre el consumo eléctrico y el crecimiento económico, los resultados mostraron que existe una relación causal en el sentido de Granger que va desde el crecimiento económico hacia el consumo eléctrico $CE \rightarrow CEl$, esta relación apoya a la hipótesis conservadora, estas conclusiones se derivan de la base de datos en un espacio temporal del 2010 hasta el 2019. 
+
+
+
+# Recomendaciones
+
+
+
+Dado que se aprobó la hipótesis conservadora, la acción de política según la literatura revisada debería ser que se aplicase restricciones en las producciones de energía eléctrica que daña el medio ambiente o aplicar restricciones al límite de producción ya que estas no afectaran al crecimiento económico.
+
+
+
+\newpage 
+
+# Referencias bibliográficas

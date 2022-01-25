@@ -1,0 +1,132 @@
+---
+output:
+  html_document:
+    df_print: paged
+  pdf_document:
+    extra_dependencies: subfig
+---
+
+\newpage
+
+```{r, echo = FALSE, include=FALSE, warning=FALSE}
+library(here)
+library(tidyverse)
+library(readr)
+library(glue)
+library(tsibble)
+theme_set(theme_minimal())
+knitr::opts_chunk$set(fig.pos = "H", # Fijar posicion de las figuras 
+                      echo = F, # si es FALSE Correr el codigo pero mostrarlo
+                      message = F, # si es FALSE Mensajes omitidos
+                      warning = F, # si es FALSE Advertencias omitidas
+                      include = T, # si es FALSE 
+                      out.extra = "", 
+                      cache = F,# 
+                      fig.align='center'
+                      ) 
+
+options(knitr.duplicate.label = "allow", # permitir Chunk names repetidos
+        knitr.table.format = function() { # funcione de acuerdo a la salida del texto
+  if (knitr::is_latex_output()) 'latex' else 'pandoc'
+}, digits = 4, 
+kableExtra.auto_format = FALSE
+)
+datos <- read_rds(here('rdatos', '00datos.rds'))
+```
+
+# Introducción 
+
+<!-- 2 - 3 paginas -->
+<!-- > Planteamiento del problema: la importancia del tema  -->
+
+
+El suministro de electricidad consituye un servicio publico clave para que los procesos industriales operen normalmente asi como para sostener el consumo de los usuarios
+residenciales. Proporcionar una fuente de energía constante es una fuente de energía que
+impulse la actividad económica, además de mantener el funcionamiento los mercados y a la vez generar bienestar al permitir que los ciudadanos tengan altos estándares de calidad de vida. 
+Por lo que sin electricidad la actividad económica podría ser inviable, dado esta relevancia el sector eléctrico se encuentra con intervención estatal, que en algunos países 
+se manifiesta con empresas públicas y regulaciones a las actividades de las empresas privadas de acuerdo con los mecanismos de mercado. 
+En el Perú el enfoque en la generación eléctrica es vía mercados competitivos, y para fomentar la inversión privada en la infraestructura, se debe desarrollar una regulación
+que promueva la eficiencia económica en los sectores sujetos a condiciones de monopolio natural ^[En el sector eléctrico destacan la transmisión y distribución eléctrica las cuales están sujetas a tarifas eléctricas eficientes, 
+por otro lado, la comercialización eléctrica en otros países está en base a la competencia 
+en el Perú la distribuidora asume ese papel también.], así como la supervisión del cumplimiento de las normas de seguridad aplicables al sector, lo anterior en el Perú está a cargo del Organismo Supervisor de la Inversión en Energía y Minería (Osinergmin)
+el cual cuenta con autonomía gubernamental. 
+
+En los últimos años se observó un importante desarrollo del sector electico en el Perú, en promedio, tuvo un crecimiento de alrededor del 8% anual, sosteniendo el crecimiento de la actividad económica, 
+la cual alcanzo tasas de crecimiento 4%. Por otro lado, también se observó una disminución de la pobreza energética y el mayor acceso de la población a los servicios energéticos se volvieron prioridad de 
+political publica. Para resaltar, la cobertura eléctrica nacional pasó de 69.8% en 2001 a
+92.0% en 2014 y, en las zonas rurales, de 24.4% a 75.2%, estas políticas de energía aún siguen vigentes, además un Decreto legislativo que mejora la Regulación de la Distribución de Electricidad para promover un
+mayor grado de acceso y uso de la energía eléctrica en el Perú con altos estándares de calidad e innovación  @Osinergmin2017. 
+
+Los principales demandantes de grandes cantidades de energía son la minería y la industria, las cuales por las características económicas 
+necesitan electricidad en casi todas las etapas de su actividad económica, con su alta demanda eléctrica ya no están sujetas a las regulaciones de precios en este caso 
+se les llama "usuarios libres"^[Consumidores que su consumo superior a 2.5 MW los que están en el rango 0.2 - 2.5 MW, pueden decidir si forman parte de los usuarios libres],
+los cuales pueden acordar el precio al cual comprar la energía eléctrica. Ya que, en el Perú, la entrada a "trabajar" por parte de las generadoras está en base al menor costo, donde 
+las empresas con menores costos son las que entran primero a vender electricidad en este caso las empresas generadoras hidráulicas, luego entran las de quema de combustible 
+pero se prioriza centrales que funcionan a base de gas natural.
+
+Dada estas implicancias sobre la energía eléctrica, los agentes que interactúan en el mercado categorizan a la
+electricidad como un bien intermedio dentro de sus procesos de producción, pues requieren de una fuente de energía continua y sostenible que permita satisfacer sus necesidades de producción influenciadas por la dinámica de crecimiento económico del país. En tal sentido, la demanda
+eléctrica comercial e industrial también es considerada una demanda derivada a las necesidades productivas de los agentes económicos involucrados y dada las particularidades de la energía la cual impide que sea almacenada a 
+gran escala a costos viables, se requiere que la oferta tenga la suficiente capacidad instalada para poder atender lo más pronto posible estados anormales de demanda eléctrica.  
+
+Por su parte el Producto Interno Bruto (PIB) per cápita, es uno de los indicadores de bienestar de la población, así que casi siempre hay políticas orientadas a estimular el
+crecimiento económico, las teorías sobre los principales componentes que causan un crecimiento económico sostenido han evolucionado desde que *Solow* el cual presento un modelo de 
+crecimiento económico. Ahora los modelos incluyen variables nuevas, por ejemplo, de capital humano, inversión de capital intangible, institucionalidad, recursos energéticos y muchos más; 
+ya que la base del crecimiento económico es el incremento de la productividad de los elementos incluidos en un modelo, es importante saber cuáles son los impactos
+de las variables al crecimiento económico, además de saber las condiciones iniciales necesarias para que estas actuaren por el canal de transmisión correcto.
+
+Ya que el Producto per cápita es visto como un indicador de bienestar es tomado usualmente en estos modelos económico de crecimiento,
+debido a que el objetivo de las economías es lograr un mayor bienestar para todos los habitantes, se ha convertido en principio de discursos políticos
+y de política pública. Pero no solo es tener crecimiento económico, lo que se requiere es que el crecimiento económico sea sostenido en el largo plazo, además
+de que sea poco influenciable por variables altamente volátiles, para que shock no afecte en demasía al crecimiento. Y dada la crisis sanitaria que actual se vive en el mundo
+básicamente todas las economías vieron una caída en el PIB, y dado esto es importante poder impulsar el crecimiento cuando esta crisis sanitaria termine.
+
+<!-- El suministro de electricidad constituye un servicio público clave para operar
+procesos industriales y sostener el consumo de los usuarios residenciales.
+Así, brinda una fuente de energía que impulsa la actividad económica,
+posibilita el comercio internacional, mantiene el buen funcionamiento de
+los mercados y genera bienestar al permitir que los ciudadanos tengan
+altos estándares de calidad de vida. Sin electricidad, el funcionamiento de la
+economía global sería inviable. Esta relevancia ha determinado que en todo
+lugar, en mayor o menor medida, el sector eléctrico se encuentre sujeto a
+alguna forma de intervención pública por parte del Estado, que se manifiesta
+vía empresas públicas y regulación de las actividades de las empresas
+privadas de acuerdo con los mecanismos de mercado. -->
+
+<!-- El nuevo enfoque estuvo dirigido a lograr la suficiencia en la
+generación eléctrica vía mercados competitivos, a fomentar
+inversión privada en infraestructura eléctrica y a desarrollar una
+regulación que promoviera la eficiencia económica en los sectores
+sujetos a condiciones de monopolio natural, como la transmisión
+y distribución eléctrica (mediante la aplicación de tarifas eléctricas
+eficientes), así como la supervisión del cumplimiento de las normas
+de seguridad industrial, de salud e higiene laboral y de ambiente
+aplicables al sector  -->
+
+<!-- El diseño de mercado y la regulación de la industria eléctrica
+imponen desafíos sobre el establecimiento de reglas que incentiven
+la eficiencia en el sector y, al mismo tiempo, garanticen la seguridad
+del suministro. En el Perú, los grandes lineamientos de la reforma
+del sector eléctrico están contenidos en el Decreto Ley N° 25844,
+Ley de Concesiones Eléctricas. Este proceso estuvo acompañado
+de la creación de Osinergmin, como organismo regulador
+independiente y autónomo del mercado eléctrico. Su contribución
+
+
+De esta manera, garantiza que las empresas
+eléctricas obtengan una rentabilidad razonable para remunerar sus
+inversiones en infraestructura y es responsable de gestionar una
+adecuada supervisión del cumplimiento de las obligaciones legales
+de las empresas, a fin de que provean un servicio confiable, seguro
+y de calidad, siempre bajo un marco de intervención regulatoria
+autónoma y transparente. -->
+
+
+ 
+
+## Importancia de la investigación 
+
+Actualmente las investigaciones en el Perú respecto a la relación crecimiento económico y consumo de electricidad son escasos, por lo que aún no se sabe empíricamente el mecanismo de trasmisión del tema. Por lo que el desarrollo de la investigación tratara de cubrir ese vacío en literatura para que pueda servir tanto para la aplicación de política pública u optimización eficiente de los recursos energéticos.
+
+
+
