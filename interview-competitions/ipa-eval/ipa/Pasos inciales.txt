@@ -1,0 +1,20 @@
+Ver el archivo "ipa-jhon.mkv"
+
+Para arquitecturas de 64 bits
+
+
+
+programa 	 | 	link
+==========================================================================================
+instalar R       |       https://cran.r-project.org/bin/windows/base/R-4.1.1-win.exe
+instalar Rstudio |       https://download1.rstudio.org/desktop/windows/RStudio-1.4.1717.exe
+instalar Rtools  |       https://cran.r-project.org/bin/windows/Rtools/rtools40v2-x86_64.exe
+
+- Lo anterior funcionara en cualquier computadora si se siguen los pasos 
+
+El archivo html contiene un resumen de todo lo que se hizo
+
+Los directorios
+
+- input: contiene los archivos del examen
+- output: contiene las respuestas 

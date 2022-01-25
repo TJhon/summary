@@ -1,0 +1,271 @@
+
+
+```{r}
+if(!require(librarian)){install.packages("librarian")}
+librarian::shelf(tidyverse, janitor)
+fs::file_delete(dir(here::here("output"), full.names = T))
+```
+
+
+
+# Replacement Workflow/Basic Data Cleaning
+
+
+
+```{r}
+ipa_01 <- 
+  c(
+    "hhid" # label
+    , "read"
+    , "write" # numeric
+    , 'head_gender' #0  female
+    , "head_education"
+    , "size"
+  )
+ipa_01_out <- here::here("output", "hh_round1_clean.dta")
+```
+
+
+```{r}
+ipa_d_01 <- 
+  here::here('input', "hh_round1.dta") %>% haven::read_dta() %>% 
+  relocate(ipa_01)
+names(ipa_d_01)
+```
+
+
+```{r}
+ipa_d_01 %>% 
+  distinct(head_education) %>% 
+  mutate(
+    lab = head_education %>% haven::as_factor("labels")
+    , num = head_education %>% haven::as_factor("values")
+    , lab1 = paste(lab, "=", num)
+  ) %>% 
+  arrange(num) %>% 
+  pull(lab1)
+
+head_education_labels <- c(
+ none = 0                
+ ,"nursery/ pre-unit" = 1   
+ ,'std 1' = 2               
+ ,'std 2' = 3               
+ ,'std 3' = 4               
+ ,'std 4' = 5               
+ ,'std 5' = 6               
+ ,'std 6' = 7               
+ ,'std 7' = 8               
+ ,'std 8' = 9               
+ ,'form 1' = 10             
+ ,'form 2' = 11             
+ ,'form 3' = 12             
+ ,'form 4' = 13             
+ ,'form 5' = 14             
+ ,'form 6' = 15             
+ ,'uni. 1' = 16             
+ ,'uni. 2' = 17            
+ ,'uni. 3' = 18            
+ ,'uni. 4' = 19             
+ ,'uni. 5' = 20             
+ ,"vocational training" = 2
+ ,"adult education" = 22    
+ ,"not indicated" = 98      
+ ,other = 23              
+ ,rta = 99                
+ ,"NA" = NA
+)
+
+```
+
+
+```{r}
+
+
+ipa_out <- ipa_d_01 %>% 
+  mutate(
+    across(.cols = c(read, write, head_gender, head_education), as.numeric)
+    , hhid1 = str_sub(hhid, 2, -1) %>% as.numeric()
+    , head_gender = ifelse(hhid1 == 15064, 0, head_gender)
+    , head_gender = (ifelse(head_gender == 2, 0, 1)) %>% haven::labelled(c(Female = 0, Male = 1)) 
+    , head_education = (ifelse(hhid1 == 29038, 0, head_education))
+    , read = ifelse(hhid1 == 53024, 3, read)
+    ) %>% 
+  rename(hh_size = size) %>% 
+  select(!hhid1)
+    
+ipa_out  
+```
+
+
+2.	What percent of respondents have a female head of household?
+7.	The Principal Investigator wants to see if there is a relationship between household head gender and household size. Find the average household size by household head gender. 
+
+```{r}
+percent <- 
+  ipa_out %>% 
+  count(head_gender) %>% 
+  mutate(
+    head_gender = haven::as_factor(head_gender, "labels")
+    , n = (((n / sum(n)) * 100) %>% round(2) ) %>% paste("%")
+  ) %>% 
+  rename(
+    "%" = 2
+  )
+percent
+```
+
+
+Respuesta: `r percent[1, 2][[1]]`
+
+```{r}
+ipa_out %>% mutate(
+  
+    head_gender = haven::as_factor(head_gender, "labels")
+) %>% 
+  select(hh_size, head_gender) %>% 
+  group_by(head_gender) %>% 
+  summarise(hh_size_mean = mean(hh_size)) 
+```
+
+
+```{r}
+ipa_out %>% haven::write_dta(ipa_01_out)
+```
+
+
+```{r}
+rm(list = ls())
+```
+
+# Import and Export Excel
+
+
+
+```{r}
+excel_out <- here::here("output", "excel_dup.xlsx")
+```
+
+
+```{r}
+ipa_02 <- 
+  readxl::read_xlsx(here::here("input", "round2.xlsx"), sheet = 2, skip = 2) %>% 
+  mutate(hhid = as.character(hhid))
+```
+
+```{r}
+dup <- 
+  ipa_02 %>% 
+  count(hhid) %>% 
+  filter(n > 1) 
+```
+
+```{r}
+ipa_02_1 <- 
+  ipa_02 %>% 
+  filter(hhid %in% pull(dup, hhid))
+```
+
+```{r}
+ipa_02_2 <- 
+  ipa_02 %>% 
+  pull(hhid)
+```
+
+
+
+```{r}
+xlsx::write.xlsx(
+  ipa_02_1
+  , file = excel_out
+  , sheetName = "duplicados"
+  , append =  T
+)
+xlsx::write.xlsx(
+  ipa_02_2
+  , file = excel_out
+  , sheetName = "duplicados_list"
+  , append =  T
+)
+```
+
+```{r}
+rm(list = ls())
+```
+
+
+# Survey Design Reconciliation
+
+
+```{r}
+join1 <- here::here("input", "hh_nr_round1.dta") %>% haven::read_dta()
+join2 <- here::here("input", "hh_round1.dta") %>% haven::read_dta()
+```
+
+## Formato largo
+
+```{r}
+join1_1 <- 
+  join1 %>% 
+  separate_rows(crop_l, convert = T) %>% 
+  rename(cropl = crop_l)
+join1_1
+```
+
+
+
+```{r}
+join2_1 <- 
+  join2 %>% 
+  pivot_longer(contains("cropl")) %>% 
+  filter(value > 0) %>% 
+  relocate(name) %>% 
+  select(!value) %>% 
+  rename(cropl = name) %>% 
+  mutate(
+    cropl = parse_number(cropl)
+  )
+join2_1
+```
+
+
+```{r}
+full_join(join2_1, join1_1) %>% 
+  mutate(
+    cropl = haven::labelled(
+      cropl
+      , c(
+        	"Rice" = 1
+        	, "Cassava" = 2
+        	, "Millet" = 3
+        	, "Groundnut" = 4
+        	, "Sweet Potato" = 5
+        	, "Wheat" = 6
+        	, "Sorghum" = 7
+      )
+    )
+  ) %>% 
+  mutate(
+    across(.cols = c(read, write, head_gender, head_education), as.numeric)
+    , hhid1 = str_sub(hhid, 2, -1) %>% as.numeric()
+    , head_gender = ifelse(hhid1 == 15064, 0, head_gender)
+    , head_gender = (ifelse(head_gender == 2, 0, 1)) %>% haven::labelled(c(Female = 0, Male = 1)) 
+    , head_education = (ifelse(hhid1 == 29038, 0, head_education))
+    , read = ifelse(hhid1 == 53024, 3, read)
+    ) %>% 
+  rename(hh_size = size) %>% 
+  select(!hhid1) %>% 
+  haven::write_dta(here::here("output", "hh_round1_longer.dta"))
+```
+
+
+Files: hh_nr_round1.dta, hh_round1.dta 
+The survey data for the Northern region of the survey area used a different variable format in the agriculture module. All respondents in both areas were asked if they grew the following crops, or if they grew any other crop:
+	"Rice" = 1
+	"Cassava" = 2
+	"Millet" = 3
+	"Groundnut" = 4
+	"Sweet Potato" = 5
+	"Wheat" = 6
+	"Sorghum" = 7
+Please combine these datasets in a consistent manner. The affected variables are crop_l1 through crop_l9 in the hh_round1.dta file and crop_l in hh_nr_round1.dta file.
+Note: The hh_nr_round1.dta has been cleaned by another RA and may not be fully clean. In addition, please provide justifications for any decisions you need to make about the data to perform the task. 
