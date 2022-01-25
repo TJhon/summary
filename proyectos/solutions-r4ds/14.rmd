@@ -1,0 +1,144 @@
+```{r}
+source('main.r')
+```
+
+# 14.2.5
+
+```{r}
+paste("a", "b")
+paste0("a", "b") # espacio 0
+```
+
+```{r}
+paste("a", "b", NA)
+```
+
+```{r}
+str_c("a", "b", NA)
+```
+
+## 3 fail
+
+```{r}
+vector <- c('a', "cba", "abccd", "dab")
+
+l <- str_length(vector)
+
+n <- ( l / 2)
+n
+
+str_sub(vector, n, n)
+
+```
+
+## 4 
+
+```{r}
+?str_wrap
+```
+
+## 5
+
+```{r}
+vector1 <- c(vector, "     z           ")
+vector1 %>% 
+  str_trim()
+vector1 %>% 
+  str_trim() %>% 
+  str_pad(30, side = 'both')
+```
+
+# 14.3.2.1
+
+
+## 2
+
+
+```{r}
+x <- stringr::words
+```
+
+### 1
+
+```{r}
+x %>% 
+  str_subset("^y")
+```
+
+
+### 2
+
+```{r}
+x %>% 
+  str_subset("x$")
+```
+
+
+### 3
+
+```{r}
+x %>% 
+  str_subset("^...$") 
+```
+
+```{r}
+str_subset(x, ".......")
+```
+
+# 14.3.3.1
+
+## 1
+
+Expresiones
+
+```{r}
+"^[aeiou]" #vocal
+"[aeiou]" # negative = T
+str_subset(x, "[^e]ed$")
+str_subset(x, "(ing|ise)$")
+```
+
+## 2
+
+No conozco esa regla
+
+```{r}
+str_subset(x, "[^c]ie")
+```
+
+## 3
+
+```{r}
+str_subset(x, "qu")
+```
+
+## 5
+
+Peru -> (+51) 999 999 999
+
+falta mejorar
+
+
+```{r}
+number <- c("(+51) 999 999 999", "(+21) 999 999 39")
+str_subset(
+  number, 
+  "\\d{2} \\d{3} \\d{3}"         
+           )
+```
+
+## 3
+
+```{r}
+str_subset(x, "^[^aeiou]{3}")
+```
+
+
+```{r}
+str_subset(x, "[aeiou]{3,}")
+```
+
+### 3 fail
+
+
+# Los siguientes ejercicios superan mi capacidad

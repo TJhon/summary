@@ -1,0 +1,249 @@
+```{r}
+source('main.r')
+```
+
+# 7.3.4
+
+```{r}
+diamonds %>% select(x, y, z)
+```
+
+```{r}
+.dist <- 
+  diamonds %>% 
+  filter(
+    between(x, 3, 10)
+    , between(y, 0, 10)
+    , between(z, 2, 8)
+  ) %>% 
+  ggplot() +
+  geom_histogram(binwidth = .1)
+```
+
+## 1
+
+```{r}
+.dist + aes(x)
+```
+
+```{r}
+.dist + aes(y)
+```
+
+```{r}
+.dist + aes(z)
+```
+
+## 2
+
+```{r}
+diamonds %>% 
+  ggplot() + 
+  geom_histogram(binwidth = 100) + aes(price)
+```
+
+
+## 3
+
+```{r}
+diamonds %>% 
+  filter(carat >= .99
+         , carat <= 1) %>% 
+  count(carat)
+  
+```
+
+
+## 4
+
+```{r}
+diamonds %>% 
+  ggplot() + 
+  geom_histogram(binwidth = 100) + aes(price) +
+  xlim(0, 2500)
+```
+
+```{r}
+diamonds %>% 
+  ggplot() + 
+  geom_histogram(binwidth = 100) + aes(price) +
+  coord_cartesian(xlim = c(0, 2500))
+```
+
+
+# 7.4.1
+
+## 1
+
+```{r}
+summary(diamonds$x)
+diamonds %>% 
+  mutate(
+    x = ifelse(between(x, 5, 6), NA_real_, x)
+  ) %>% 
+  ggplot() + aes(x) + geom_histogram()
+```
+```{r}
+diamonds %>% 
+  mutate(
+    cut1 = ifelse(cut == "Ideal", NA_real_, as.character(cut) )
+  ) %>% 
+  ggplot() +
+  geom_bar() + aes(cut1) #final
+```
+
+
+## 2
+
+```{r}
+z <- c(1:12, NA_real_)
+z
+sum(z)
+sum(z, na.rm = T)
+```
+
+
+# 7.5.1.1
+
+## 1
+
+```{r}
+set.seed(100)
+flights %>% 
+  mutate(
+    cancel = is.na(dep_time)
+    , sched_dep_time = (sched_dep_time %/% 100 + sched_dep_time %% 100 / 60)
+  ) %>% 
+  ggplot() +
+  geom_boxplot() +
+  geom_count()+
+  aes(cancel, sched_dep_time)
+```
+
+
+## 3
+
+```{r}
+librarian::shelf(ggstance)
+```
+
+
+```{r}
+ggplot(mpg, aes(class, hwy, fill = factor(cyl))) +
+  geom_boxplot() +
+  coord_flip()
+
+# With ggstance we use the h-suffixed version:
+ggplot(mpg, aes(hwy, class, fill = factor(cyl))) +
+  geom_boxploth()
+```
+
+
+
+## 5
+
+```{r}
+.main <- 
+  diamonds %>% 
+  ggplot() +
+  aes(price) 
+```
+
+
+```{r}
+.main +
+  aes(color = cut) +
+  geom_freqpoly()
+.main +
+  aes(fill = cut) +
+  geom_histogram() +
+  facet_wrap(~cut, ncol = 2, scales = 'free')
+.main +
+  aes(y = price, x = cut,  fill = cut) + 
+  geom_violin() +
+  coord_flip() 
+```
+
+
+## 6
+
+```{r}
+librarian::shelf(ggbeeswarm)
+
+?ggbeeswarm::geom_beeswarm
+```
+
+```{r}
+ggplot(mpg) +
+  aes(
+    reorder(class, hwy, FUN = mean)
+    , hwy
+    ) +
+  geom_beeswarm(size = 2)
+```
+
+
+# 7.5.2.1
+
+## 1
+
+```{r}
+diamonds %>% 
+  count(color, cut) %>% 
+  with_groups(color, ~mutate(., prop1 = n / sum(n))) %>% 
+  ggplot() + 
+  aes(color, cut, fill = prop1) +
+  geom_tile()
+```
+
+## 2
+
+```{r}
+flights %>% 
+  with_groups(
+    c(month, dest)
+    , ~summarise(., delay =  mean(dep_delay, na.rm = T), n = n())
+  ) %>% 
+  arrange(desc(n)) %>% 
+  slice(1:200) %>% 
+  ggplot() +
+  aes(as_factor(month), dest, fill = delay) +
+  geom_tile() 
+```
+
+## 3
+
+```{r}
+diamonds %>% 
+  count(color, cut) %>% 
+  ggplot() + 
+  aes(color, cut, fill = n) + 
+  geom_tile()
+```
+
+
+# 7.5.3.1
+
+
+## 2 
+
+```{r}
+diamonds %>% 
+  ggplot() + 
+  aes(cut_number(price, 10), carat) +
+  geom_boxplot() +
+  coord_flip() +
+  labs(x = 'price_range')
+```
+
+
+## 4
+
+```{r}
+diamonds %>% 
+  ggplot() +
+  aes(color = cut, carat %>% cut_number(3), price) +
+  geom_boxplot() + labs(x = 'cut') + coord_flip()
+```
+
+

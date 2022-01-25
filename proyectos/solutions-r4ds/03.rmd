@@ -1,0 +1,395 @@
+
+```{r}
+source("main.r")
+```
+
+
+# 3.2.4
+
+## 1
+
+```{r}
+ggplot(mpg)
+```
+
+## 2
+
+```{r}
+glimpse(mpg)
+```
+
+## 4
+
+```{r}
+ggplot(mpg) + 
+  aes(cyl, hwy) +
+  geom_point()
+```
+
+## 5
+
+```{r}
+ggplot(mpg) +
+  aes(class, drv) +
+  geom_point()
+```
+
+```{r}
+mpg %>% 
+  count(class, drv) %>% 
+  ggplot() +
+  aes(class, drv, size = n) +
+  geom_point()
+```
+
+```{r}
+mpg %>% 
+  ggplot() +
+  aes(class, drv) +
+  geom_count()
+```
+
+# 3.3.1
+
+
+## 1
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, color = "blue"))
+```
+
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy), color = "blue")
+```
+
+
+## 3
+
+```{r}
+p3 <- 
+  ggplot(mpg) +
+  aes(displ, hwy) +
+  geom_point()
+p3
+```
+
+
+```{r}
+p3 + aes(color = cty)
+p3 + aes(size = cty)
+#p3 + aes(shape = cty) # error
+```
+
+
+## 4
+
+
+```{r}
+p3 + aes(color = cyl, size = cyl)
+```
+
+
+## 5
+
+```{r}
+p3 +
+  geom_point(stroke = 5, fill = 'white', color = "black", shape = 21, size = 5)
+```
+
+## 6
+
+```{r}
+p3 +
+  aes(color = displ < 5 )
+```
+
+# 3.5.1
+
+```{r}
+p02 <- (
+  ggplot(mpg) +
+  aes(displ, hwy) +
+  geom_point() +
+  facet_grid(. ~ cty))
+
+p03 <- 
+  ggplot(mpg) +
+  aes(displ, hwy) +
+  geom_point()
+```
+
+## 1
+
+```{r}
+p02
+```
+
+
+
+
+
+## 2
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = drv, y = cyl))
+```
+
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = hwy, y = cty)) +
+  facet_grid( drv ~ cyl)
+```
+
+
+## 3
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  facet_grid(drv ~ .)
+
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  facet_grid(. ~ cyl)
+```
+
+
+## 4
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_wrap(~ class, nrow = 2)
+```
+
+# 3.6.1
+
+## 1
+
+` geom_line`
+` geom_boxplot`
+` geom_histogram`
+
+## 2
+
+```{r}
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy, color = drv)) + 
+  geom_point() + 
+  geom_smooth(se = FALSE)
+```
+
+## 3
+
+```{r}
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy, color = drv)) + 
+  geom_point() + 
+  geom_smooth(se = FALSE, show.legend = F)
+```
+
+
+## 5
+
+```{r}
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+  geom_point() + 
+  geom_smooth()
+
+ggplot() +
+  labs(title = "redundante") +
+  geom_point(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+  geom_smooth(data = mpg, mapping = aes(x = displ, y = hwy))
+```
+
+
+## 6
+
+```{r}
+p03
+```
+
+
+### 1
+
+```{r}
+p03 + geom_smooth()
+```
+
+
+
+### 2
+
+```{r}
+p3 + geom_smooth(mapping = aes(group = drv), se = F)
+```
+
+### 3
+
+```{r}
+p3 + aes(color = drv) + geom_smooth(se = F)
+```
+
+### 4
+
+```{r}
+p3 + geom_point(aes(color = drv)) + geom_smooth(se = F)
+```
+
+
+### 5
+
+```{r}
+p3 + geom_point(aes(color = drv)) + geom_smooth(aes(lty = drv), se = F)
+```
+
+
+### 6
+
+```{r}
+p03 +
+  geom_point(size = 4, color = 'white') +
+  geom_point(aes(color = drv)) 
+```
+
+# 3.7.1
+
+## 1
+
+```{r}
+ggplot(data = diamonds) + 
+  stat_summary(
+    mapping = aes(x = cut, y = depth),
+    fun.min = min,
+    fun.max = max,
+    fun = median
+  )
+```
+
+```{r}
+ggplot(diamonds) +
+  geom_pointrange(
+    stat = 'summary'
+    , fun.min = min
+    , fun.max = max
+    , fun = median
+  ) +
+  aes(cut, depth)
+
+```
+
+
+## 5
+
+
+```{r}
+ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, y = after_stat(prop)))
+ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, fill = color, y = after_stat(prop)))
+```
+
+```{r}
+ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, y = after_stat(prop))) +
+  aes(group = 1)
+ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, fill = color, y = after_stat(prop))) +
+  aes(group = color)
+```
+
+# 3.8.1
+
+## 1
+
+```{r}
+p03 <- 
+  p03 +
+  aes(cty, hwy) +
+  geom_jitter()
+p03
+```
+
+
+## 2
+
+```{r}
+p04 <- 
+  ggplot(mpg) +
+  aes(cty, hwy) +
+  geom_jitter(width = 0)
+p04 
+ggplot(mpg) +
+  aes(cty, hwy) +
+  geom_jitter(width = 12, height = 21)
+```
+
+
+## 3
+
+```{r}
+ggplot(mpg) +
+  aes(cty, hwy, color = class) +
+  #geom_jitter() +
+  geom_count(position = "jitter")
+```
+
+
+## 4
+
+```{r}
+ggplot(mpg)+
+  aes(drv, hwy, color = class) +
+  geom_boxplot()
+```
+
+# 3.9.1
+
+## 1
+
+```{r}
+ggplot(mpg) +
+  aes(x = 1, fill = drv) +
+  geom_bar()
+```
+
+```{r}
+ggplot(mpg) +
+  aes(x = 1, fill = drv) +
+  geom_bar() +
+  coord_polar(theta = 'y')
+```
+
+
+## 2
+
+```{r}
+p3 +
+  labs(
+    x = "DISPL x"
+    , y = 'hyw y'
+    , title = "title"
+    , subtitle = 'subtitlte'
+    , caption = 'mpg'
+  )
+```
+
+
+
+## 4
+
+```{r}
+z <- 
+  ggplot(data = mpg, mapping = aes(x = cty, y = hwy)) +
+  geom_point() + 
+  geom_abline() +
+  coord_fixed()
+```
+
+```{r}
+z + coord_fixed()
+z
+```
+

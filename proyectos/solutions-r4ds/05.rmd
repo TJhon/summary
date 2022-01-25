@@ -1,0 +1,297 @@
+
+```{r}
+source('main.r')
+librarian::shelf(nycflights13)
+```
+
+```{r}
+
+```
+
+# 5.2.4
+
+## 1
+
+### 1
+
+```{r}
+flights <- as_tibble(flights)
+flights %>% 
+  filter(arr_delay >= 120)
+```
+
+### 2
+
+```{r}
+flights %>% 
+  filter(
+    dest %in% c("IAH", "HOU")
+  )
+```
+
+
+### 3
+
+```{r}
+flights %>% 
+  filter(carrier %in% c("AA", "DL", "UA"))
+```
+
+
+### 4
+
+```{r}
+flights %>% 
+  filter(
+    month %in% 7:9
+  )
+```
+
+### 5
+
+```{r}
+flights %>% 
+  filter(
+    arr_delay > 120
+    , dep_delay <= 0
+  )
+```
+
+### 6
+
+```{r}
+flights %>% 
+  filter(
+    dep_delay >= 60
+    , dep_delay - arr_delay > 30
+  )
+```
+
+
+### 7
+
+```{r}
+flights %>% 
+  filter(
+    dep_time <= 600 | dep_time == 2400
+  )
+```
+
+
+## 2
+
+```{r}
+flights %>% 
+  filter(between(month, 7, 9))
+```
+
+
+## 3
+
+```{r}
+flights %>% 
+  filter(is.na(dep_time))
+```
+
+
+
+
+# 5.3.1
+
+## 1
+
+```{r}
+flights %>% 
+  arrange(desc(is.na(dep_time))) 
+```
+
+## 2
+
+```{r}
+flights %>% 
+  arrange(desc(dep_delay))
+flights %>% 
+  arrange((dep_delay))
+```
+
+
+## 3
+
+```{r}
+flights %>% 
+  arrange(air_time) %>% 
+  slice(1:6)
+```
+
+```{r}
+flights %>% 
+  arrange(desc(distance / air_time)) %>% 
+  slice(1:6)
+```
+
+
+
+## 4
+
+```{r}
+flights %>% 
+  arrange(desc(distance))
+```
+
+```{r}
+flights %>% 
+  arrange(air_time)
+```
+
+
+
+# 5.4.1
+
+
+
+## 1
+
+```{r}
+flights %>% 
+  select(dep_time, dep_delay, arr_time, arr_delay)
+```
+
+
+## 2
+
+```{r}
+flights %>% 
+  select(dep_time, dep_delay, arr_time, arr_delay, arr_time)
+```
+
+
+## 3
+
+```{r}
+vars <- c("year", "month", "day", "dep_delay", "arr_delay")
+flights %>% 
+  select(any_of(vars))
+```
+
+
+## 4
+
+```{r}
+flights %>% 
+  select(contains("TIME"))
+
+flights %>% 
+  select(contains("TIME", ignore.case = F))
+
+```
+
+
+# 5.5.2
+
+## 1
+
+```{r}
+
+mins <- function(.x){
+  (.x %/% 100 * 60 + .x %% 100) %% 1440
+}
+
+flights %>% 
+  transmute(
+    dep_time
+    , sched_dep_time
+    , dep_time_min = mins(dep_time)#(dep_time %/% 100 * 60 + dep_time %% 100) %% 1440
+    , dep_timen_min_pro = mins(sched_dep_time)# (sched_dep_time %/% 100 *60 + sched_dep_time %% 100) %% 1440
+    
+  )
+```
+
+
+## 2
+
+```{r}
+flights %>% 
+  transmute(
+    dep_time = mins(dep_time)
+    , arr_time = mins(arr_time)
+    , diff_air_time = air_time - arr_time + dep_time
+  )
+```
+
+
+## 3
+
+```{r}
+flights %>% 
+  mutate(
+    dep_time1 = mins(dep_time)
+    , dep_time_min1 = mins(sched_dep_time)
+    , diff_dep_delay = dep_delay - dep_time + dep_time_min1
+  ) %>% 
+  filter(diff_dep_delay != 0)
+```
+
+
+## 4
+
+
+```{r}
+posicion <- rnorm(10)
+posicion  
+```
+
+```{r}
+posicion %>% 
+  enframe() %>% 
+  mutate(
+    min_rank1 = min_rank(value)
+  ) %>% 
+  arrange(value)
+```
+
+```{r}
+flights %>% 
+  arrange(dep_delay) %>% 
+  slice(1:10) %>% 
+  mutate(
+    wrost_rank1 = min_rank(dep_delay)
+  ) %>% 
+  relocate(wrost_rank1)
+```
+
+
+
+## 5
+
+`R` Recicla valores
+
+```{r}
+1:3 + 1:10
+```
+
+
+
+# 5.6.7
+
+```{r}
+not_cancelled <- flights %>% 
+  filter(!is.na(dep_delay), !is.na(arr_delay))
+```
+
+
+## 2
+
+
+```{r}
+not_cancelled %>% 
+  with_groups(dest, ~summarise(., n = n()))
+```
+
+
+## 6
+
+```{r}
+flights %>% 
+  count(dest, sort = T)
+```
+

@@ -1,0 +1,220 @@
+```{r}
+source('main.r')
+```
+
+
+# 12.2.1
+
+## 1
+
+```{r}
+table1
+table2
+table3
+```
+
+## 2
+
+Pasos largos
+
+```{r}
+table2 %>% 
+  filter(type == 'cases') %>% 
+  rename(cases = count) %>% 
+  arrange(country, year)
+```
+
+```{r}
+table2 %>% 
+  filter(type  == "population") %>% 
+  rename(population = count) %>% 
+  arrange(country, year)
+```
+
+pasos cortos
+
+```{r}
+table2 %>% 
+  pivot_wider(names_from = type, values_from = count) %>% 
+  mutate(rate = (cases / population)*10000) %>%
+  arrange(country, year)
+```
+
+
+
+## 3
+
+```{r}
+table2
+table1
+```
+
+```{r}
+table2 %>% 
+  filter(type == 'cases') %>% 
+  ggplot() +
+  aes(year, count, color = country, group = country) +
+  geom_line() + 
+  geom_point() +
+  scale_x_continuous(breaks = unique(table2$year)) +
+  labs(y = 'cases') +
+  theme_light() +
+  theme(legend.position = 'top') 
+```
+
+
+# 12.3.3
+
+
+## 2
+
+```{r}
+table4a %>% 
+  pivot_longer(c(1999, 2000), names_to = "year", values_to = "cases")
+```
+
+```{r}
+table4a %>% 
+  pivot_longer(c(`1999`, `2000`), names_to = "year", values_to = "cases")
+```
+
+## 3
+
+```{r}
+people <- tribble(
+  ~name,             ~names,  ~values,
+  #-----------------|--------|------
+  "Phillip Woods",   "age",       45,
+  "Phillip Woods",   "height",   186,
+  "Phillip Woods",   "age",       50,
+  "Jessica Cordero", "age",       37,
+  "Jessica Cordero", "height",   156
+)
+people %>% 
+  pivot_wider(names_from = names, values_from = values)
+```
+
+```{r}
+people %>% 
+  with_groups(
+    c(name, names)
+    , ~mutate(., id = row_number())) %>% 
+  pivot_wider(names_from = names, values_from = values)
+```
+## 4
+
+```{r}
+preg <- tribble(
+  ~pregnant, ~male, ~female,
+  "yes",     NA,    10,
+  "no",      20,    12
+)
+preg %>% 
+  pivot_longer(!pregnant, names_to = "sex") %>% 
+  drop_na(value) %>% 
+  filter(sex == "female") %>% 
+  rename(count = value)
+```
+
+# 12.4.3
+
+
+## 1
+
+```{r}
+tibble(x = c("a,b,c", "d,e,f,g", "h,i,j")) %>% 
+  separate(x, c("one", "two", "three"))
+
+tibble(x = c("a,b,c", "d,e", "f,g,i")) %>% 
+  separate(x, c("one", "two", "three"))
+```
+
+
+```{r}
+tibble(x = c("a,b,c", "d,e", "f,g,i")) %>% 
+  
+  separate(x, c("one", "two", "three"), extra = 'merge') 
+```
+
+
+
+## 2
+
+```{r}
+tibble(x = c("a,b,c", "d,e", "f,g,i")) %>% 
+  
+  separate(x, c("one", "two", "three"), remove = F) 
+```
+
+
+## 3
+
+
+```{r}
+df <- data.frame(x = c(NA, "x1", "x2", "y3"))
+df %>% separate(x, c("A", "B"), sep = 1)
+```
+
+```{r}
+df <- data.frame(x = c(NA, "a-b", "a-d", "b-c", "d-e"))
+df %>% 
+  extract(x, c('a', 'b'), "([[:alnum:]]+)-([[:alnum:]]+)")
+
+```
+
+# 12.5.1
+
+```{r}
+fish_encounters %>% 
+  #add_row(fish = factor(4842), station = "Release", seen = NA_real_) %>% 
+  pivot_wider(names_from = 'station', values_from = 'seen', values_fill = 0)
+```
+
+```{r}
+df <- tibble(
+  group = c(1:2, 1),
+  item_id = c(1:2, 2),
+  item_name = c("a", "b", "b"),
+  value1 = 1:3,
+  value2 = 4:6
+)
+df
+```
+
+```{r}
+df %>% 
+  complete(group, nesting(item_id, item_name), fill = list(
+    value1 = 0
+    , value2 = "0"
+  ))
+```
+
+```{r}
+df_fill <- 
+  df %>% 
+  complete(group, nesting(item_id, item_name)) 
+df_fill %>% 
+  fill(value1, value2)
+df_fill %>% 
+  fill(value1, value2, .direction = 'up')
+```
+
+# 12.6.1 
+
+
+
+```{r}
+who %>% pivot_longer(!c(country:year), values_drop_na = T)
+```
+
+
+```{r}
+who %>% pivot_longer(!c(country:year), values_drop_na = T) %>%
+  mutate(
+    name = str_replace(name, "newrel", "new_rel")
+  ) %>% 
+  separate(name, c("new", "tp", "something")) %>% 
+  separate(something, c("sex", "year"), sep = 1)
+```
+
+

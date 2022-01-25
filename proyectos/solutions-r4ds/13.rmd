@@ -1,0 +1,56 @@
+```{r}
+source('main.r')
+```
+
+# 13.3.1
+
+## 1
+
+```{r}
+nycflights13::flights %>% 
+  #glimpse()
+  arrange(flight, year, month, day, carrier) %>% 
+  mutate(id = row_number()) %>% 
+  relocate(id)
+```
+
+
+## 2
+
+```{r, eval=F}
+Lahman::Batting #payerid
+babynames::babynames #1:3
+nasaweather::atmos #  lat long year month
+fueleconomy::vehicles # id
+ggplot2::diamonds %>% # id
+  mutate(id = row_number()) # Todos son distintos
+```
+
+# 13.4.6
+
+## 1
+
+```{r}
+nycflights13::flights %>% 
+  group_by(dest) %>% 
+  summarise(delay = mean(arr_delay, na.rm = T)) %>% 
+  inner_join(nycflights13::airports, by = c('dest' = "faa")) %>% 
+    ggplot(aes(lon, lat, color = delay)) +
+    borders("state") +
+    geom_point() +
+    coord_quickmap()
+```
+
+
+
+## 3
+
+
+
+## 4
+## 5
+
+```{r}
+
+```
+

@@ -1,0 +1,79 @@
+```{r}
+source("main.r")
+```
+
+# 1
+
+```{r}
+mtcars
+```
+
+```{r}
+is_tibble(mtcars)
+```
+
+# 2
+
+```{r}
+df <- data.frame(abc = 1, xyz = "a")
+df$x
+df[, "xyz"]
+df[, c("abc", "xyz")]
+```
+
+```{r}
+df <- data.frame(abc = 1, xyz = "a")
+df <- as_tibble(df)
+df$x
+df[, "xyz"]
+df[, c("abc", "xyz")]
+```
+
+# 3
+
+```{r}
+mtcars_tbl <- 
+  mtcars %>% 
+  as_tibble()
+var <- "mpg"
+mtcars[[var]]
+```
+
+# 4
+
+```{r}
+annoying <- tibble(
+  `1` = 1:10,
+  `2` = `1` * 2 + rnorm(length(`1`))
+)
+annoying$`1`
+annoying %>% 
+  ggplot() +
+  aes(`1`, `2`) +
+  geom_point()
+annoying <- annoying %>% 
+  mutate(
+    `3` = `1` / `2`
+  )
+annoying %>% 
+  rename(
+    one = `1`
+    , two = `2`
+    , three = `3`
+  )
+```
+
+# 5
+
+Para vectores
+
+```{r}
+en <- rnorm(100)
+en
+```
+```{r}
+en %>% enframe()
+```
+
+
+
