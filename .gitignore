@@ -3,5 +3,5 @@
 .RData
 .Ruserdata
 *.html
-interview-copetitions/ipa-eval/input
-interview-copetitions/ipa-eval/output
+/interview-competitions/ipa-eval/input/
+/interview-competitions/ipa-eval/output/
