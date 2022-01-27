@@ -60,8 +60,8 @@ features = [
   "HOUSING",                        # Indica si el cliente posee una casa propia
   "EXISTING_CREDITS_COUNT",         # Número de préstamos que le han sido concedidos al cliente en el pasado
   "JOB_TYPE",                       # Tipo de empleo: 0 - desempleado, 1 - no calificado, 2 - autónomo, 3 - calificado
-  "DEPENDENTS",                     # Número de personas con acceso a la cuenta
-  "TELEPHONE",                      # Denota si el cliente tiene un número de teléfono registrado
+  #"DEPENDENTS",                     # Número de personas con acceso a la cuenta (inbalanced)
+  #"TELEPHONE",                      # Denota si el cliente tiene un número de teléfono registrado(.1%)
   "FOREIGN_WORKER"                  # Denota si el cliente trabaja en un país fuera del banco
 ]
 target = ['ALLOW']
