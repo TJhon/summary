@@ -1,0 +1,285 @@
+---
+output: 
+  - html_document
+  - github_document
+title: Subjetive Well-Being Data Task
+always_allow_html: true
+---
+
+# Code and Resources Used
+
+```{r, include=F}
+knitr::opts_chunk$set(
+  message = F
+  , warning = F
+)
+```
+
+
+**R version** 4.1.1 
+
+**Packages:** 
+
+- `tidyverse`
+- `here`
+- `fs` 
+- `modelsummary`
+- `librarian`
+
+**Reference** 
+
+- [Subjective Well‐Being and Income: Is There Any Evidence of Satiation?](https://www.brookings.edu/wp-content/uploads/2016/06/subjective-well-being-income.pdf)
+- [Topincomesandsubjectivewell-being](https://www.sciencedirect.com/science/article/abs/pii/S0167487018302952?via%3Dihub)
+
+## Data
+
+| Column name | Description                                                                                                  |
+|-------------|--------------------------------------------------------------------------------------------------------------|
+| `aspect`    | Name of aspect of well-being                                                                                 |
+| `worker`      | Unique string of letters and number identifying respondent                                                   |
+| `time`        | Time that the respondent recorder his/her rating. Reported in Unix time (Number of seconds sice Jan. 1 1970) |
+| `rating`      | Rating on a scale from 0 to 100                                                                              |
+| `age`         | Age of respondent                                                                                            |
+| `male`        | Bynari variable fro respondent gender. 0 indicates female and 1 indicates male                               |
+| `income`      | Respondent's total household income                                                                          |
+| `education`   | Respondent's completed level of education                                                                    |
+| `race`        | Race of respondent                                                                                           |
+
+## Requirements
+
+```{r}
+if(!require("librarian")) install.packages('librarian')
+```
+
+
+## Load libraries
+
+```{r}
+librarian::shelf(tidyverse, here, fs, modelsummary)
+```
+
+## Directories
+
+```{r}
+data <- here::here('data', 'Data Task')
+
+fs::dir_tree(here(data))
+
+fs::dir_delete("plots")
+
+
+if(!dir.exists('plots')){dir.create("plots")}
+
+fs::dir_tree("plots")
+```
+
+
+
+# Question 1
+
+## a) Load `ratings.csv`
+
+```{r}
+ratings <- read_csv(here::here(data, "ratings.csv"))
+head(ratings)
+```
+
+## b) Report the number of unique respondents and the number of unique aspects in the data set
+
+
+### Respondents
+
+```{r}
+n_id <- 
+  ratings %>% 
+  distinct(worker) %>% 
+  nrow()
+n_id
+```
+
+### Aspects
+
+```{r}
+n_a <- 
+  ratings %>% 
+  distinct(aspect) %>% 
+  nrow()
+n_a
+```
+
+## c) Check to see if each respondent has only rated each aspect once. If this is not true, only include the most recent observation and report the number of observations you have dropped.
+
+
+### No unique
+
+```{r}
+ratings %>% 
+  count(worker, aspect) %>% 
+  filter(n > 1) %>% 
+  nrow()
+```
+
+### Most recent
+
+```{r, cache=T}
+ratings_unique <- 
+  ratings %>% 
+  with_groups(
+    c(worker, aspect)
+    , ~filter(., time == max(time))
+  )
+ratings_unique
+```
+
+## d) Calculate the average rating for each respondent. We will call this measure subjective riches. Report the minimum, 25th percentile, 50th percentile, 75th percentile, and maximum subjective riches value.
+
+```{r}
+rating_sub <- 
+ ratings_unique %>% 
+  with_groups(
+    worker,
+    ~summarise(
+      .
+      , sub_rich = mean(rating, na.rm = T)
+    )
+  )
+rating_sub
+
+```
+
+```{r}
+quantile(rating_sub$sub_rich) %>% 
+  enframe("Q", "")
+```
+
+
+
+# Question 2
+
+## a) Load `demographics.csv`
+
+
+```{r}
+demographics <- read_csv(here(data, "demographics.csv"))
+demographics
+```
+
+
+## b) Report the number of rows and check to see if it is the same as the number of unique respondents you calculated in question 1
+
+
+### `ratings`
+
+```{r}
+nrow(rating_sub)
+```
+
+### `demographics` 
+
+```{r}
+nrow(demographics)
+```
+
+### Check
+
+```{r}
+nrow(rating_sub) == nrow(demographics)
+```
+
+## c) Merge the subjective riches data from question 1 with the demographics data.
+
+Well-Being (`w_b`)
+
+
+```{r}
+w_b <- full_join(rating_sub, demographics)
+w_b
+```
+
+## d) Regress (with OLS) subjective riches on income and report the results.
+
+
+```{r, results='asis'}
+modelsummary::modelsummary(list("Subjetive Rich" = lm(sub_rich ~ log(income), data = w_b)), output = "markdown", estimate = c("{estimate}{stars}"))
+```
+
+
+The results of the model indicate that the total income received has a positive effect on their perception of happiness (subjective), that is, families with high monetary income are happier than families with low income. For this particular case, it is observed that in subjective happiness it is on average 8.2, also if family income increases by 100 monetary units, your subjective assessment of happiness will increase by 5 units.
+
+
+## e) Regress (with OLS) subjective riches on income with controls for age, age2 (age squared), gender, level of education, and race
+
+```{r}
+modelsummary::modelsummary(list("Subjetive Rich" = lm(sub_rich ~ log(income) + age + I(age^2) + male + education + race, data = w_b)), output = "markdown",  estimate = c("{estimate}{stars}"))
+```
+
+
+
+The model presented with the variables control, age, sex and education and race, suggests that income, sex (male) and education (Some College) are relevant variables in their perception of happiness, in this case it also affirms that wealthy families have A higher subjective perception of happiness with low income, in the same way, men have a better score of their happiness in 2 points, finally, people who only studied a few years at university and dropped out have a negative perception of their happiness of 2 points. Given this, no evidence was noted that race had significance in happiness.
+
+## d) Imagine you were also given each respondent’s household size. How would you change your analysis above in light of this new information? (Max 100 words)
+
+
+If we add the size of the household, the responsibilities would increase in some cases, for families with few monetary resources, having more children would be greater responsibilities, therefore their perception of happiness would be lower than those without children since they could allocate the money available for their own human development. While high-income families would be indifferent.
+
+# Question 3 
+
+## a) Figure: income, ratings of health and age
+
+```{r nocolor}
+set.seed(12)
+plot0 <- 
+  w_b %>% 
+  mutate(
+    income = log(income)
+    #, age_cut = cut_interval(age, 2)# cut_width(age, 2)
+    , income_cut = cut_interval(income, 5)
+    , age_cut = cut_interval(age, 4)
+    ) %>% 
+  ggplot() +
+  aes(income, sub_rich, color = age_cut) +
+  geom_jitter(height = .25) +
+  facet_wrap(~age_cut, ncol = 2) +
+  scale_x_continuous(breaks = seq(from = 6, to = 13, by = 1)) +
+  xlim(9, 13) +
+  labs(
+    y = "Subjetive Riches"
+    , x = "Total household income (log scale)"
+    , title = "Subjective riches, income and age relations"
+    ) +
+  theme_bw() +
+  geom_smooth(method = 'lm', se = F) +
+  scale_colour_brewer(
+    palette = "Set1"
+    , name = "Age"
+    , guide = guide_legend(
+      direction = 'horizontal'
+      , title.position = 'left'
+      , title.hjust = .3
+      , title.vjust = .3
+      , label.hjust = .5
+      , label.position = 'top'
+      , keywidth = 3
+      , keyheight = .5
+    )
+    ) +
+  theme(
+    legend.position = "top"
+    , strip.background = element_blank()
+    , strip.text = element_blank()
+    , axis.text.x = element_text(vjust = .9)
+  )
+plot0
+```
+
+## b) Produce and save the scatterplot (or if you prefer, up to two proposals for alternative scatterplots).
+
+```{r}
+ggsave(plot = plot0, file = here::here("plots", "plot0.png"), dpi = 300)
+```
+
+
+## c) From a policy perspective, understanding the determinants of well-being is an important question. Describe the ways in which your regressions in the previous question and your scatterplot(s) help or do not help answer this question. Think about your proxy for well-being (subjective ratings) as well as the specification of your regressions. (Max 250 words)
+
+
+Policy actions, in order to improve people's well-being, focus on variables which may directly affect, in this particular case, income, which may be donations or other types of transfers, or which may be influenced through policy action. In this case it would be education, however the coefficients associated with the different levels of education (except doctorate degree) were negative, that is to say that the more they study the level of happiness will decline if these variables were relevant, while the other variables are currently difficult to manipulate.
