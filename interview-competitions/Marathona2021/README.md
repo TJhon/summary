@@ -7,7 +7,7 @@
 
 # Desafio 1
 
-[z](https://github.com/TJhon/summary/blob/main/interview-competitions/Marathona2021/d1/mrth_1_v2.py)
+[link](https://github.com/TJhon/summary/blob/main/interview-competitions/Marathona2021/d1/mrth_1_v2.py)
 
 # Desafio 2
 
