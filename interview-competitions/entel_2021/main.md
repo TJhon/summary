@@ -1,16 +1,12 @@
----
-output: github_document
----
 
-
-```{r}
+```r
 source('code/func.r')
 ```
 
 # Importar
 
 
-```{r}
+```r
 train <- 
   xl_read(.doc = 'train') %>% 
   vari_td() 
@@ -23,7 +19,7 @@ output <- xl_read(.doc = 'sampleSubmission')
 
 # Datos
 
-```{r}
+```r
 
 
 for(i in unique(train$reg)){
@@ -42,7 +38,7 @@ for(i in unique(train$reg)){
 
 ## Folds
 
-```{r}
+```r
 set.seed(55)
 train_folds <- vfold_cv(train, 10, 5)
 keep_pred <- control_resamples(save_pred = T, save_workflow = T)
@@ -51,7 +47,7 @@ set.seed(128)
 ```
 
 
-```{r}
+```r
 t1 <- initial_split(train, strata = distancia) %>% training()
 t2 <- initial_split(train, strata = distancia) %>% testing()
 test1 <- 
@@ -84,13 +80,13 @@ test1 %>%
 
 ## Workflow
 
-```{r}
+```r
 
 ```
 
 
 
-```{r}
+```r
 lm_model <- linear_reg() %>% set_engine("lm")
 metrics_0 <- metric_set(mape, rsq, rmse)
 rf_model <- rand_forest(trees = 10) %>% set_engine('ranger') %>% set_mode('regression')
@@ -99,13 +95,13 @@ rf_model <- rand_forest(trees = 10) %>% set_engine('ranger') %>% set_mode('regre
 
 ## Formulas 
 
-```{r}
+```r
 train %>% names()
 train %>% head(2)
 ```
 
 
-```{r}
+```r
 all_model <- list(
   bs_1 <- distancia ~ lon_d + lat_d
 , bs_1_d <- distancia ~ lon_d:lat_d
@@ -123,7 +119,7 @@ all_model <- list(
 
 ```
 
-```{r}
+```r
 set.seed(100)
 
 metrics_mape <- function(.train, .test, .model){
@@ -150,7 +146,7 @@ metrics_mape(t1, t2, all_model)
 ```
 
 
-```{r}
+```r
 set.seed(100)
 
 
@@ -176,7 +172,7 @@ final <-
 ```
 
 
-```{r}
+```r
 final %>% write_csv("answer.csv")
 ```
 
