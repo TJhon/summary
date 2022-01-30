@@ -24,7 +24,7 @@ librarian::shelf(
 knitr::include_graphics(here::here("fig_sc", "wong.png"))
 ```
 
-![](C:/Users/Jhon/Documents/me/summary/challenge/fig_sc/wong.png)<!-- -->
+![](../fig_sc/wong.png)<!-- -->
 
 ### Scraping
 
@@ -87,7 +87,7 @@ write_csv(wong_dt, here::here("output", "wong_scraping.csv"))
 knitr::include_graphics(here::here("fig_sc", "urb.png"))
 ```
 
-![](C:/Users/Jhon/Documents/me/summary/challenge/fig_sc/urb.png)<!-- -->
+![](../fig_sc/urb.png)<!-- -->
 
 ### Scraping
 
