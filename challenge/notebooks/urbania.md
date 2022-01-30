@@ -1,21 +1,16 @@
----
-output: github_document
-title: Web scraping with R
----
+Web scraping with R
+================
 
+# Librerias
 
-
-
-# Librerias 
-
-```{r}
+``` r
 knitr::opts_chunk$set(
   warning = F
   , message = F
 )
 ```
 
-```{r}
+``` r
 if(!require("librarian")) install.packages('librarian')
 librarian::shelf(
   tidyverse
@@ -25,14 +20,15 @@ librarian::shelf(
 
 ## Wong
 
-```{r}
+``` r
 knitr::include_graphics(here::here("fig_sc", "wong.png"))
 ```
 
+![](C:/Users/Jhon/Documents/me/summary/challenge/fig_sc/wong.png)<!-- -->
 
 ### Scraping
 
-```{r}
+``` r
 wong <- "https://www.wong.pe/cervezas-vinos-y-licores"
 
 wong_h <- read_html(wong) 
@@ -65,21 +61,37 @@ wong_dt <-
 
 wong_dt |> 
   head(10)
+```
+
+    ## # A tibble: 10 x 3
+    ##       id producto                                                         precio
+    ##    <int> <chr>                                                             <dbl>
+    ##  1     1 Delonghi Molinillo de Café                                        329  
+    ##  2     2 Oster Exprimidor cítricos FPSTJU407W 18W                           99.0
+    ##  3     3 Bosch Batidora de Mano MFQ24200                                   179  
+    ##  4     4 Nex Horno Eléctrico 9 Lt EO900BX                                   89  
+    ##  5     5 Bosch Cocina Empotrable a Gas PCP6A5B90V 4 Hornillas             1599  
+    ##  6     6 Imaco Pentacombo: Pequeños Electrodomésticos                      439  
+    ##  7     7 Bosch Tostador TAT7S45 4 Rebanadas                                359  
+    ##  8     8 Bosch Hervidor Eléctrico Design Line TWK5P480                     259  
+    ##  9     9 Combo Imaco: Licuadora BLS5388I + Mini Grill IG2314 + Hervidor ~  369  
+    ## 10    10 Imaco Freidora de Aire Digital 4.2 Lt AF5514 1400W                599
+
+``` r
 write_csv(wong_dt, here::here("output", "wong_scraping.csv"))
 ```
 
-
 ## Urbania
 
-```{r}
+``` r
 knitr::include_graphics(here::here("fig_sc", "urb.png"))
 ```
 
+![](C:/Users/Jhon/Documents/me/summary/challenge/fig_sc/urb.png)<!-- -->
 
 ### Scraping
 
-
-```{r}
+``` r
 urb <- 
   read_html("http://urbania.pe/buscar/alquiler-de-departamentos?keyword=lima")
 elements <- 
@@ -117,4 +129,3 @@ urb2 <-
 
 write.csv(urb2, here::here("output", "urbania.csv"), row.names = F)
 ```
-

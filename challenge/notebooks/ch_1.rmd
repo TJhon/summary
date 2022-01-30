@@ -12,6 +12,13 @@ https://www.youtube.com/watch?v=sSnbmbRmtSA
 
 # Overview
 
+```{r}
+knitr::opts_chunk$set(
+  warning = F
+  , message = F
+)
+```
+
 
 ```{r}
 knitr::include_graphics(path = here::here("fig_sc", "ch1.png"))

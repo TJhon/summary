@@ -1,16 +1,14 @@
----
-title: Clean Data SBS
-output: github_document
----
+Clean Data SBS
+================
 
-```{r}
+``` r
 knitr::opts_chunk$set(
   warning = F
   , message = F
 )
 ```
 
-```{r}
+``` r
 librarian::shelf(
   tidyverse
   , readxl
@@ -22,27 +20,42 @@ librarian::shelf(
 
 # Overview
 
-```{r}
+``` r
 knitr::include_graphics(here::here("fig_sc", "sbs.png"))
 ```
 
+![](C:/Users/Jhon/Documents/me/summary/challenge/fig_sc/sbs.png)<!-- -->
 
-
-
-
-
-It is curious that the SBS database is not recognized as reading .csv or .xlsx, so I crossed the function and it worked.
+It is curious that the SBS database is not recognized as reading .csv or
+.xlsx, so I crossed the function and it worked.
 
 Only MN
 
-```{r}
+``` r
 sbs_zona <- read_excel(here("data", "sbs", "B-zona.csv"))
 head(sbs_zona, 10)
 ```
 
+    ## # A tibble: 10 x 19
+    ##    ...1  ...2  ...3  ...4  ...5  ...6  ...7  ...8  ...9  ...10 ...11 ...12 ...13
+    ##    <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr> <chr>
+    ##  1 Créd~ <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA> 
+    ##  2 43861 <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA> 
+    ##  3 <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  (En ~ <NA>  <NA>  <NA>  <NA>  <NA> 
+    ##  4 <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA> 
+    ##  5 <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA>  <NA> 
+    ##  6 Depa~ Prov~ Dist~ Créd~ <NA>  <NA>  Depó~ <NA>  <NA>  Depó~ <NA>  <NA>  Depó~
+    ##  7 <NA>  Dist~ Dist~ MN    ME    Total MN    ME    Total MN    ME    Total MN   
+    ##  8 Amaz~ Bagua Bagua 5027~ 44.8~ 5031~ 3120~ 29.7~ 3150~ 2006~ 1090~ 2115~ 2460~
+    ##  9 <NA>  Chac~ Chac~ 1073~ 302.~ 1076~ 2585~ 1134~ 2698~ 3581~ 5914~ 4173~ 4792~
+    ## 10 <NA>  Utcu~ Bagu~ 1231~ 62.6~ 1231~ 1382~ 2881~ 1670~ 2924~ 1815~ 3106~ 4340~
+    ## # ... with 6 more variables: ...14 <chr>, ...15 <chr>, ...16 <chr>,
+    ## #   ...17 <chr>, ...18 <chr>,
+    ## #   Fuente: Anexo 10 Depósitos, Colocaciones y Personal por oficinas <chr>
+
 # Try
 
-```{r}
+``` r
 sbs_clean <- 
   sbs_zona |> 
   clean_names() |> 
@@ -81,7 +94,7 @@ sbs_clean <-
 
 ## All data base
 
-```{r}
+``` r
 sbs_clean <- function(sbs_data) {
   sbs_data |> 
     clean_names() |> 
@@ -120,18 +133,16 @@ sbs_clean <- function(sbs_data) {
 }
 ```
 
-
-```{r}
+``` r
 all_sbs <- dir(here("data", "sbs"), full.names = T) |> 
   map_df(read_excel, range = "A1:R286")
 ```
-```{r}
+
+``` r
 all_sbs_clean <- 
   all_sbs |> 
   sbs_clean() |> 
   select(!cuadro_no_2) 
 
 write.csv(all_sbs_clean, here("output", "sbs.clean.csv"), row.names = F)
-
 ```
-

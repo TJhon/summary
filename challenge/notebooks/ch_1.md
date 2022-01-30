@@ -8,21 +8,14 @@ Referencia de este video
 
 <https://www.youtube.com/watch?v=sSnbmbRmtSA>
 
-# Library
+# Overview
 
 ``` r
-librarian::shelf(tidyverse)
+knitr::opts_chunk$set(
+  warning = F
+  , message = F
+)
 ```
-
-    ## 
-    ##   The 'cran_repo' argument in shelf() was not set, so it will use
-    ##   cran_repo = 'https://cran.r-project.org' by default.
-    ## 
-    ##   To avoid this message, set the 'cran_repo' argument to a CRAN
-    ##   mirror URL (see https://cran.r-project.org/mirrors.html) or set
-    ##   'quiet = TRUE'.
-
-## Dirty data
 
 ``` r
 knitr::include_graphics(path = here::here("fig_sc", "ch1.png"))
@@ -30,17 +23,19 @@ knitr::include_graphics(path = here::here("fig_sc", "ch1.png"))
 
 ![](C:/Users/Jhon/Documents/me/summary/challenge/fig_sc/ch1.png)<!-- -->
 
+# Library
+
+``` r
+librarian::shelf(tidyverse)
+```
+
+## Dirty data
+
 ``` r
 dirty <- 
   here::here("data", "data_cleaning_challenge.csv") %>% 
   read_csv(show_col_types = F)
 ```
-
-    ## New names:
-    ## * `` -> ...10
-    ## * `` -> ...11
-
-    ## Warning: One or more parsing issues, see `problems()` for details
 
 ``` r
 head(dirty, 20)
@@ -95,14 +90,6 @@ clean <-
   rename_with(str_to_sentence)
 ```
 
-    ## Warning in mask$eval_all_mutate(quo): NAs introduced by coercion
-
-    ## Warning in mask$eval_all_mutate(quo): NAs introduced by coercion
-
-    ## Warning in mask$eval_all_mutate(quo): NAs introduced by coercion
-
-    ## Warning in mask$eval_all_mutate(quo): NAs introduced by coercion
-
 ``` r
 head(clean)
 ```
@@ -144,3 +131,7 @@ head(clean_v2)
     ## 6     1 Person     Human     end of t~ Maximum          276     33     97    154
     ## # ... with 4 more variables: Electricity <dbl>, Effort <dbl>, Weight <dbl>,
     ## #   Torque <dbl>
+
+``` r
+write.csv(clean_v2, here::here("output", "ch1.csv"), row.names = F)
+```
