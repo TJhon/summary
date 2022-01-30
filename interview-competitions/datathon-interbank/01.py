@@ -1,21 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # Script para generar la solución del Primer Benchmark de la Competencia
-# 
-# ## Si no presentaste aún tu primera solución, tenes la oportunidad de hacerlo en pocos Clicks!
-# 
-# **Hola! **  
-#   
-# Este Script es un Ejemplo de Procesamiento de los Datos, Modelado y Generación de una Solución.
-# 
-# Agregamos una pequeña explicación de lo que se hace en cada paso para ayudar a los que están comenzando ahora
-# 
-
-# ### Importamos las librerías que vamos a utilizar
-
-# In[1]:
-
 
 import pandas as pd
 from lightgbm import LGBMClassifier
@@ -24,13 +6,7 @@ from sklearn.model_selection import KFold
 import re
 
 
-# ### Lectura de las Bases
-# 
-# Observamos los datos que tenemos disponibles en https://www.kaggle.com/c/interbank20/data
-# 
-# Vamos a trabajar ahora con todas las bases disponibles
 
-# In[4]:
 
 
 rcc_train = pd.read_csv("Data/rcc_train.csv")
@@ -43,11 +19,6 @@ se_test= pd.read_csv("Data/se_test.csv", index_col="key_value")
 censo_test= pd.read_csv("Data/censo_test.csv", index_col="key_value")
 
 
-# ### Vamos a trabajar ahora con la base de **RCC**:
-# * Discretizamos los días de atraso para poder manipularla mejor
-# * Hacemos tablas cruzadas sobre key_value y cada variable de interés, utilizando distintas funciones de agregación sobre el saldo del producto
-
-# In[5]:
 
 
 bins = [-1, 0, 10, 20, 30, 60, 90, 180, 360, 720, float("inf")]
@@ -55,7 +26,6 @@ rcc_train["condicion"] = pd.cut(rcc_train.condicion, bins)
 rcc_test["condicion"] = pd.cut(rcc_test.condicion, bins)
 
 
-# In[6]:
 
 
 def makeCt(df, c, aggfunc=sum):
@@ -67,7 +37,6 @@ def makeCt(df, c, aggfunc=sum):
     return ct
 
 
-# In[7]:
 
 
 train = []
@@ -79,7 +48,6 @@ for c in rcc_train.drop(["codmes", "key_value", "saldo"], axis=1):
     test.extend([makeCt(rcc_test, c, aggfunc) for aggfunc in aggfuncs])
 
 
-# In[17]:
 
 
 import gc
@@ -88,23 +56,13 @@ del rcc_train, rcc_test
 gc
 
 
-# In[ ]:
-
-
 gc 
 
-
-# In[9]:
 
 
 train = pd.concat(train, axis=1)
 test = pd.concat(test, axis=1)
 
-
-# ### Incorporamos la Información adicional existente en las tablas socio económicas y del censo. Es un simple join porque ambas tienen key_value únicos
-# #### Por el momento no incorporamos la información tributaria porque requiere un tratamiento más complejo que queda para futuras revisiones
-
-# In[10]:
 
 
 train = train.join(censo_train).join(se_train)
@@ -114,9 +72,6 @@ del censo_train, se_train, censo_test, se_test
 gc.collect()
 
 
-# ### Por la naturaleza de las variables creadas, nos aseguramos que solo se utilicen variables existentes en ambos conjuntos de datos (train y test)
-
-# In[11]:
 
 
 keep_cols = list(set(train.columns).intersection(set(test.columns)))
@@ -125,32 +80,19 @@ test = test[keep_cols]
 len(set(train.columns) - set(test.columns)) , len(set(test.columns) - set(train.columns))
 
 
-# In[12]:
-
 
 test = test.rename(columns = lambda x:re.sub('[^A-Za-z0-9_-]+', '', x))
 train = train.rename(columns = lambda x:re.sub('[^A-Za-z0-9_-]+', '', x))
 
 
-# In[13]:
-
-
 folds = [train.index[t] for t, v in KFold(5).split(train)]
 
 
-# ### Entrenamiento del Modelo
-# 
-# Para entrenar nuestro modelo vamos a usar LightGBM. A diferencia del notebook anterior, esta vez vamos a agregar la optimización de hyper-parámetro. Se usan sólo dos con algunos pocos posibles valores, a modo de ejemplo para que los participantes lo puedan ir mejorando. 
-
-# In[14]:
 
 
 from sklearn.model_selection import ParameterGrid
 
 params = ParameterGrid({"min_child_samples": [150, 250, 500, 1000], "boosting_type": ["gbdt", "goss"]})
-
-
-# In[15]:
 
 
 best_score = 0
@@ -184,18 +126,13 @@ for param in params:
     
 
 
-# ### Guardado de las predicciones modelo para hacer la presentación
-# 
-# Finalmente creamos el archivo CSV que podemos subir como nuestra Solución a la competencia
 
-# In[16]:
 
 
 best_probs.name = "target"
 best_probs.to_csv("benchmark2.csv")
 
 
-# In[19]:
 
 
 best_probs
