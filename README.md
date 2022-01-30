@@ -9,7 +9,7 @@ Summary of resources and my proyects
 No source database
 
 - [Data intern](https://github.com/TJhon/summary/tree/main/interview-competitions/data-intern)
-- [Data analisis](https://github.com/TJhon/summary/tree/main/interview-competitions/ipa)
+- [Data analysis](https://github.com/TJhon/summary/tree/main/interview-competitions/ipa)
 
 ## Competitions
 
