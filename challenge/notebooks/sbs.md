@@ -24,7 +24,7 @@ librarian::shelf(
 knitr::include_graphics(here::here("fig_sc", "sbs.png"))
 ```
 
-![](C:/Users/Jhon/Documents/me/summary/challenge/fig_sc/sbs.png)<!-- -->
+![](../fig_sc/sbs.png)<!-- -->
 
 It is curious that the SBS database is not recognized as reading .csv or
 .xlsx, so I crossed the function and it worked.
