@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 knitr::include_graphics(path = here::here("fig_sc", "ch1.png"))
 ```
 
-![](C:/Users/Jhon/Documents/me/summary/challenge/fig_sc/ch1.png)<!-- -->
+![](../fig_sc/ch1.png)<!-- -->
 
 # Library
 
