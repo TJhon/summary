@@ -3,6 +3,7 @@ librarian::shelf(
     , readxl
     , janitor
     , lubridate
+    , cran_repo = 'https://cran.r-project.org'
 )
 
 igp_begin <- read_excel("data/IGP_datos_sismicos.xlsx") |> clean_names()

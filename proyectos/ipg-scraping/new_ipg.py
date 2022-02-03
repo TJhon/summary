@@ -9,7 +9,7 @@ from selenium import webdriver
 import csv
 import time
 
-last =  "IGP/CENSIS/RS 2022-0055"
+last =  "IGP/CENSIS/RS 2022-0076"
 
 anio, last_report = last[14:18], int(last[19:])
 

@@ -6172,3 +6172,246 @@ JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/e
 JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
 JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
 JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0055, line 327: TypeError: document.getElementById(...) is null
+1643918622069	geckodriver	INFO	Listening on 127.0.0.1:57053
+1643918625166	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "57054" "-no-remote" "-profile" "C:\\Users\\Jhon\\AppData\\Local\\Temp\\rust_mozprofileBg3wtV"
+1643918625558	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Jhon\\AppData\\Local\\Temp\\rust_mozprofileBg3wtV\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:57054/devtools/browser/7a05efee-4606-4a71-8eb8-d6aa261901b0
+1643918628273	Marionette	INFO	Listening on port 57059
+1643918628370	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0001, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0002, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0003, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0004, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0005, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0006, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0007, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0008, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0009, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0010, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0011, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0012, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0013, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0014, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0015, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0016, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0017, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0018, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0019, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0020, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0021, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0022, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0023, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0024, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0025, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0026, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0027, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0028, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0029, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0030, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0031, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0032, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0033, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0034, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0035, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0036, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0037, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0038, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0039, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0040, line 304: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0040, line 310: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0040, line 316: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0040, line 322: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0040, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0041, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0042, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0043, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0044, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0045, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0046, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0047, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0048, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0049, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0050, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0051, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0052, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0053, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0054, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0055, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0056, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0057, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0058, line 304: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0058, line 310: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0058, line 316: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0058, line 322: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0058, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0059, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0060, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0061, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0062, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0063, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0064, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0065, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0066, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0067, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0068, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0069, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0070, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0071, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0072, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0073, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0074, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0075, line 327: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/dependencies/leaflet.js?v=50361749, line 2: Error: Map container not found.
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/js/censis.js?v=82741074, line 7: TypeError: document.getElementById(...) is null
+JavaScript error: https://www.igp.gob.pe/servicios/centro-sismologico-nacional/evento/2022-0076, line 327: TypeError: document.getElementById(...) is null
